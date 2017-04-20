@@ -65,7 +65,7 @@ public abstract class PowerUp extends Sprite {
     }
 
     /**
-        A Music PowerUp. Changes the game music...GREG
+        A Music PowerUp. Changes the game music...
     */
     public static class Music extends PowerUp {
         public Music(Animation anim) {
