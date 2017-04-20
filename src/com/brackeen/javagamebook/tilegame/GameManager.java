@@ -17,7 +17,7 @@ import com.brackeen.javagamebook.tilegame.sprites.*;
 import com.brackeen.javagamebook.codereflection.*;
 
 /**
-    GameManager manages all parts of the game
+    GameManager manages all parts of the game.
 */
 public class GameManager extends GameCore {
 	private boolean showFPS=true;
