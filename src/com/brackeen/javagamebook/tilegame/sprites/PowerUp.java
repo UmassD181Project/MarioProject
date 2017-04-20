@@ -64,7 +64,6 @@ public abstract class PowerUp extends Sprite {
         }
     }
 
-
     /**
         A Music PowerUp. Changes the game music.
     */
