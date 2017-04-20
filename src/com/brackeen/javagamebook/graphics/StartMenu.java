@@ -57,7 +57,7 @@ public class StartMenu extends JFrame{
 			}
 		};
 		panel.setOpaque( false );
-		panel.setPreferredSize( new Dimension(500, 400) );
+		panel.setPreferredSize( new Dimension(400, 400) );
 		
 		scrollPane = new JScrollPane( panel );
 		getContentPane().add( scrollPane );
