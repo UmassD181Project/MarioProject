@@ -1150,7 +1150,7 @@ public class GameManager extends GameCore {
             	{	
             		if(SOUND_ON)
             			soundManager.play(boopSound);
-            		if(/*!badguy.isHelper() && */badguy.takesDMG()==true){//if it's a helper, don't do the following		////Added check for canTakeDamage(variable in creature class)
+            		if(badguy.takesDMG()==true){//if it's a helper, don't do the following		////Added check for canTakeDamage(variable in creature class)
             			badguy.decrementHealth();
             			if(badguy.getHealth()==0)
             			{	//The Bad Guy is dead
