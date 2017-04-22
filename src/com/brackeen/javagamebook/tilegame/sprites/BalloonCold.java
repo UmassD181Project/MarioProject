@@ -21,11 +21,14 @@ public class BalloonCold extends Balloon
     	}
 		//Give 2 Health
     	health=2;
-		//Define as not helperder.
-		helper = false;
-		
+		//Define as helper; can take but not deal damage.
+		helper = true;
+		canDoDamage = false;
+		canTakeDamage=true;
 		//Set as flying
 		flying = true;
+		//give 2 health
+		setHealth(2);
 	}
 	public float getMaxSpeed() 
 	{

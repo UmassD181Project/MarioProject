@@ -39,9 +39,10 @@ public class Balloon extends Creature {
         	}
     	}
 		
-		//Define as a helper 
+		//Define as a helper; cannot do/take damage
 		helper = true;
-		
+		canDoDamage = false;
+		canTakeDamage=false;
 		//Set as flying
 		flying = true;
 	}
