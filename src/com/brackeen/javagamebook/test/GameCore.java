@@ -133,7 +133,7 @@ public abstract class GameCore extends JFrame {
         Runs through the game loop until stop() is called.
 	 */
 	double interpolation = 0;
-	final int TICKS_PER_SECOND = 60;
+	final int TICKS_PER_SECOND = 120;
 	final int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 	final int MAXIMUM_FRAMESKIP = 5;
 
