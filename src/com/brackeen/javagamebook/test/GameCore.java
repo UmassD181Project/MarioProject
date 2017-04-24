@@ -1,9 +1,11 @@
 package com.brackeen.javagamebook.test;
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.ImageIcon;
+
 import com.brackeen.javagamebook.tilegame.GameManager;
+import com.brackeen.javagamebook.eventlisteners.ExitButtonListener;
 import com.brackeen.javagamebook.graphics.ScreenManager;
+import com.brackeen.javagamebook.input.InputManager;
 /**
     Simple abstract class used for testing. Subclasses should
     implement the draw() method.
@@ -32,7 +34,7 @@ public abstract class GameCore extends JFrame {
 
 	private Dimension 	screenResolution = new Dimension(800, 600);
 	private int			colorDepth = 16;
-
+	
 
 
 	/**
@@ -50,6 +52,7 @@ public abstract class GameCore extends JFrame {
 		try {
 			init();
 			gameLoop();
+			
 		}
 		finally {
 			screen.restoreScreen();
@@ -135,7 +138,7 @@ public abstract class GameCore extends JFrame {
 	double interpolation = 0;
 	final int TICKS_PER_SECOND = 120;
 	final int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-	final int MAXIMUM_FRAMESKIP = 5;
+	final int MAXIMUM_FRAMESKIP = 3;
 
 	public void gameLoop() {
 		long startTime = System.currentTimeMillis();
@@ -145,9 +148,17 @@ public abstract class GameCore extends JFrame {
 		ImageIcon icon;
 		icon = new ImageIcon("images/blackout.png");
 		int iterator;
-
+		int pauseLimiter=0;
+		Window window = screen.getFullScreenWindow();
+		final Cursor VISIBLE_CURSOR =Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage("images/arrowCursor.png"),
+				new Point(0,0),"visible");
+		Component comp;
+		InputManager inputManager = new InputManager(
+	            screen.getFullScreenWindow());
+		
 		while (isRunning) {
 			iterator=0;
+			pauseLimiter=0;
 			while (System.currentTimeMillis() > nextTickTime && iterator < MAXIMUM_FRAMESKIP)
 			{
 				
@@ -155,10 +166,14 @@ public abstract class GameCore extends JFrame {
 				{
 					try
 					{
-
+						if (pauseLimiter<1)
+						{
 						screen.getGraphics().drawString("Automatic Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
+						screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
 						screen.update();
 						Thread.sleep(20);
+						pauseLimiter++;
+						}
 
 					}
 					catch(Exception e)
@@ -170,10 +185,27 @@ public abstract class GameCore extends JFrame {
 				{
 					try
 					{
+					
+						if (pauseLimiter<1)
+						{
+							
 						screen.getGraphics().drawString("Manual Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
 						screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
-						screen.update();
+						
+					    JButton exitButton=new JButton("Exit");  
+					    exitButton.addActionListener(new ExitButtonListener());
+					    exitButton.setBounds(screen.frame().getWidth()/2-150,screen.frame().getHeight()/2,95,30);  
+					    
+					    window.add(exitButton); 
+					    //window.update();
+					    screen.update();
 						Thread.sleep(20);
+						inputManager.setCursor(InputManager.VISIBLE_CURSOR);
+						pauseLimiter++;
+						}
+						
+						
+						
 					}
 					catch(Exception e)
 					{
@@ -182,7 +214,7 @@ public abstract class GameCore extends JFrame {
 
 					GameManager.getGameManagerInstance().checkInput(0);		//check to see if the pause key was pressed
 				}
-
+				inputManager.setCursor(InputManager.INVISIBLE_CURSOR);
 				long elapsedTime =
 						System.currentTimeMillis() - currTime;
 				currTime += elapsedTime;
