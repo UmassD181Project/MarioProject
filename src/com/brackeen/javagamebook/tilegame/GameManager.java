@@ -626,8 +626,8 @@ public class GameManager extends GameCore {
         inputManager.mapToKey(moveLeft, KeyEvent.VK_LEFT);
         inputManager.mapToKey(moveRight, KeyEvent.VK_RIGHT);
         inputManager.mapToKey(jump, KeyEvent.VK_SPACE);
-        inputManager.mapToKey(exit, KeyEvent.VK_ESCAPE);
-        inputManager.mapToKey(pause, KeyEvent.VK_P);
+        //inputManager.mapToKey(exit, KeyEvent.VK_ESCAPE);
+        inputManager.mapToKey(pause, KeyEvent.VK_ESCAPE);
     }
     
     public void checkInput(long elapsedTime) {
@@ -644,7 +644,9 @@ public class GameManager extends GameCore {
             stop();
         }
 
-        if(pause.isPressed()){
+        if(pause.isPressed())
+        {
+        	//DRAW BUTTONS ON PAUSE SCREEN
         	this.togglePause();
         }
         
