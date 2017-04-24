@@ -629,6 +629,21 @@ public class ResourceManager {
     	return(s.getSoundByReference("hurt"));
     }
     
+    //credit sound entry 
+    public String getCreditSound() 
+    {	//return the sound for the end credits
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()){
+    		if(CodeReflection.getAbstactionLevel()>=0)
+    		{//check to make sure it's this level of abstraction
+    			e.fillInStackTrace();
+    			CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+						e.getStackTrace()[0].getMethodName());
+    			
+    		}
+    	}
+    	return (s.getSoundByReference("credits"));
+	}
+    
     public ScriptManager getScriptClass()
     {	//return your instance of s
     	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
@@ -823,5 +838,8 @@ public class ResourceManager {
 	    	}
 	 	return(s.getLevelMappingFile());
 	 }
+
+
+	
 
 }

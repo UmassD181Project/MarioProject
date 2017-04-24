@@ -105,6 +105,8 @@ public class GameManager extends GameCore {
     private Sound dieSound;
     private Sound healthSound;
     private Sound hurtSound;
+    //var for credits music
+    private Sound credits;
     
     private InputManager inputManager;
     private TileMapRenderer renderer;
@@ -165,7 +167,7 @@ public class GameManager extends GameCore {
         dieSound = soundManager.getSound("sounds/"+resourceManager.getDieSound());
         healthSound = soundManager.getSound("sounds/"+resourceManager.getHealthSound());
         hurtSound = soundManager.getSound("sounds/"+resourceManager.getHurtSound());
-        
+        credits = soundManager.getSound("sounds/"+resourceManager.getCreditSound());
         // start music
         if(MUSIC_ON){
         	midiPlayer = new MidiPlayer();
