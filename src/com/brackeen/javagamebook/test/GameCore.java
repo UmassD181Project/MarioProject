@@ -34,7 +34,7 @@ public abstract class GameCore extends JFrame {
 
 	private Dimension 	screenResolution = new Dimension(800, 600);
 	private int			colorDepth = 16;
-	
+
 
 
 	/**
@@ -52,7 +52,7 @@ public abstract class GameCore extends JFrame {
 		try {
 			init();
 			gameLoop();
-			
+
 		}
 		finally {
 			screen.restoreScreen();
@@ -149,30 +149,47 @@ public abstract class GameCore extends JFrame {
 		icon = new ImageIcon("images/blackout.png");
 		int iterator;
 		int pauseLimiter=0;
-		Window window = screen.getFullScreenWindow();
+		JFrame window = screen.getFullScreenWindow();
 		final Cursor VISIBLE_CURSOR =Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage("images/arrowCursor.png"),
 				new Point(0,0),"visible");
 		Component comp;
 		InputManager inputManager = new InputManager(
-	            screen.getFullScreenWindow());
+				screen.getFullScreenWindow());
+		JPanel buttonPanel;
+		JButton exitButton=new JButton("Exit");  
+		exitButton.addActionListener(new ExitButtonListener());
+		GridBagConstraints c = new GridBagConstraints();
+		JPanel optionsMenu;
+		ImageIcon background;
+		background = new ImageIcon("images/banner.gif");
+		buttonPanel =new JPanel()
+		{
+			public void paintComponent(Graphics g)
+			{
+				g.drawImage(background.getImage(),0,0,null);
+				g.setColor(Color.RED);
+				//this.setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		
 		while (isRunning) {
 			iterator=0;
 			pauseLimiter=0;
 			while (System.currentTimeMillis() > nextTickTime && iterator < MAXIMUM_FRAMESKIP)
 			{
-				
+
 				while(!screen.frame().isFocused())
 				{
 					try
 					{
 						if (pauseLimiter<1)
 						{
-						screen.getGraphics().drawString("Automatic Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
-						screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
-						screen.update();
-						Thread.sleep(20);
-						pauseLimiter++;
+							screen.getGraphics().drawString("Automatic Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
+							screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
+							screen.update();
+							Thread.sleep(20);
+							pauseLimiter++;
 						}
 
 					}
@@ -185,27 +202,41 @@ public abstract class GameCore extends JFrame {
 				{
 					try
 					{
-					
+
 						if (pauseLimiter<1)
 						{
 							
-						screen.getGraphics().drawString("Manual Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
-						screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
-						
-					    JButton exitButton=new JButton("Exit");  
-					    exitButton.addActionListener(new ExitButtonListener());
-					    exitButton.setBounds(screen.frame().getWidth()/2-150,screen.frame().getHeight()/2,95,30);  
-					    
-					    window.add(exitButton); 
-					    //window.update();
-					    screen.update();
-						Thread.sleep(20);
-						inputManager.setCursor(InputManager.VISIBLE_CURSOR);
-						pauseLimiter++;
+							screen.getGraphics().drawString("Manual Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
+							screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
+							buttonPanel.setBackground(new Color(0,0,0,0));
+							buttonPanel.setOpaque(false);
+							
+							exitButton.setBounds(screen.frame().getWidth()/2-150,screen.frame().getHeight()/2,95,30);
+							window.setVisible(true);
+							//window.setBackground(new Color(0,0,0,0.0f));
+							buttonPanel.setLayout(null);
+							//c.fill = GridBagConstraints.HORIZONTAL;
+							//c.ipady = 20;
+							//c.weightx = 0.0;
+							//c.gridwidth = 3;
+							//c.gridx = 0;
+							//c.gridy = 1;
+							
+
+							buttonPanel.add(exitButton,c); 
+							window.add(buttonPanel,BorderLayout.CENTER);
+							//window.update();
+							screen.update();
+							Thread.sleep(20);
+							inputManager.setCursor(InputManager.VISIBLE_CURSOR);
+							pauseLimiter++;
+							buttonPanel.repaint();
+							//window.setVisible(true);
+							window.validate();
 						}
-						
-						
-						
+
+
+
 					}
 					catch(Exception e)
 					{
@@ -213,6 +244,14 @@ public abstract class GameCore extends JFrame {
 					}
 
 					GameManager.getGameManagerInstance().checkInput(0);		//check to see if the pause key was pressed
+				}
+				try
+				{
+				//	window.remove(buttonPanel);
+				}
+				catch(NullPointerException npe)
+				{
+
 				}
 				inputManager.setCursor(InputManager.INVISIBLE_CURSOR);
 				long elapsedTime =
