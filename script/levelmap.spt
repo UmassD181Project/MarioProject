@@ -9,13 +9,13 @@
 #Maps themselves
 1 >map2.txt
 >background.png
->music.mid
+>gerudo-valley-2-.mid
 2 >map2.txt
 >background2.png
 >the_moon2.mid
 3 >map3.txt
 >background.png
->music.mid
+>gerudo-valley-2-.mid
 4 >map3.txt
 >background2.png
 >the_moon2.mid
@@ -24,10 +24,10 @@
 >the_moon2.mid
 6 >map4.txt
 >the_moon2.mid
->music.mid
+>gerudo-valley-2-.mid
 7 >map5.txt
 >background.png
->music.mid
+>gerudo-valley-2-.mid
 8 >map5.txt
 >the_moon2.mid
 >the_moon2.mid
@@ -36,13 +36,13 @@
 >the_moon2.mid
 10 >map6.txt
 >background2.png
->music.mid
+>gerudo-valley-2-.mid
 11 >map7.txt
 >background.png
 >the_moon2.mid
 12 >map7.txt
 >background2.png
->music.mid
+>gerudo-valley-2-.mid
 13 >map1.txt
 >background.png
 >the_moon2.mid
