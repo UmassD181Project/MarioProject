@@ -449,8 +449,8 @@ public class ResourceManager {
         	playerAnim[i] = createPlayerAnim(i,
             images);
         }
-        playerAnim[4] = createPlayerAnim(0,images);
-        playerAnim[5] = createPlayerAnim(1,images);
+        playerAnim[4] = createPlayerJumpAnim(0,images);
+        playerAnim[5] = createPlayerJumpAnim(1,images);
 
         // create creature sprites
         playerSprite = new Player(playerAnim[0], playerAnim[1],

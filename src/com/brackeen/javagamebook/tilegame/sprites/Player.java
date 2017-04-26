@@ -11,12 +11,12 @@ import com.brackeen.javagamebook.codereflection.*;
 */
 
 public class Player extends Creature {
-    private Animation jumpLeft;
-    private Animation jumpRight;
+    public static Animation jumpLeft;
+    public Animation jumpRight;
 //    private Throwable e = new Throwable();
     
 	public int consecutiveHits=0;
-	
+	public boolean grounded = true;
 	public static float playerJumpSpeedMultiplier = 1.0f;
 	
     public Player(Animation left, Animation right,
@@ -42,11 +42,19 @@ public class Player extends Creature {
     {
     	// select the correct Animation
         Animation newAnim = anim;
-        if (getVelocityX() < 0 && onGround) {
-            newAnim = jumpLeft;
+        
+        if (getVelocityX() < 0 && onGround && !(getVelocityY() > 0 ||getVelocityY() < 0))  {
+            newAnim = left;
         }
-        else if (getVelocityX() > 0 && onGround) {
+        else if (getVelocityX() > 0 && onGround && !(getVelocityY() > 0 ||getVelocityY() < 0)) {
+            newAnim = right;
+        }
+        if (getVelocityX() < 0 &&!onGround&& (getVelocityY() > 0 ||getVelocityY() < 0)) {
             newAnim = jumpRight;
+        }
+        if (getVelocityX() > 0 &&!onGround&& (getVelocityY() > 0 ||getVelocityY() < 0) ) 
+        {
+            newAnim = jumpLeft;
         }
         if ((state == STATE_DYING || state == STATE_HURT) && newAnim == left) {
             newAnim = deadLeft;
@@ -54,13 +62,7 @@ public class Player extends Creature {
         else if ((state == STATE_DYING || state == STATE_HURT) && newAnim == right) {
             newAnim = deadRight;
         }
-        if (!onGround && newAnim == left) {
-            newAnim = jumpLeft;
-        }
-        else if (getVelocityX() > 0 && getVelocityY() > 0 &&  newAnim == right) 
-        {
-            newAnim = jumpRight;
-        }
+        
         // update the Animation
         if (anim != newAnim) {
             anim = newAnim;
@@ -117,6 +119,7 @@ public class Player extends Creature {
     	}
         if ((onGround || forceJump) && isAlive()) {
             onGround = false;
+            
             setVelocityY(jumpSpeed * playerJumpSpeedMultiplier);
         }
     }

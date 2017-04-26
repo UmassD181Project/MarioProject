@@ -626,6 +626,7 @@ public class GameManager extends GameCore {
         inputManager.mapToKey(moveLeft, KeyEvent.VK_LEFT);
         inputManager.mapToKey(moveRight, KeyEvent.VK_RIGHT);
         inputManager.mapToKey(jump, KeyEvent.VK_SPACE);
+        inputManager.mapToKey(jump, KeyEvent.VK_UP);
         //inputManager.mapToKey(exit, KeyEvent.VK_ESCAPE);
         inputManager.mapToKey(pause, KeyEvent.VK_ESCAPE);
     }
@@ -870,7 +871,7 @@ public class GameManager extends GameCore {
     			hitClock=0;
     	}
     	
-        Creature player = (Creature)map.getPlayer();
+        Player player = (Player) map.getPlayer();
         Graphics2D g = screen.getGraphics();
 
         if(player.getY()>screen.getHeight()+player.getHeight()) 
@@ -1044,6 +1045,7 @@ public class GameManager extends GameCore {
             if(pl.isOnGround()){
                 pl.consecutiveHits = 0;
                 scoreBoard.setMultiplier(this.baseScoreMultiplier);	
+                pl.grounded=true;
             }
         }
 
@@ -1099,6 +1101,7 @@ public class GameManager extends GameCore {
                 		badguy.setState(Creature.STATE_DYING);
                 		player.setY(badguy.getY() - player.getHeight());
                 		player.jump(true);
+                		player.grounded = false;
                 		
                     	midiPlayer.stop();	//temporarily stop music
                     	
@@ -1145,6 +1148,7 @@ public class GameManager extends GameCore {
             			badguy.setState(Creature.STATE_HURT);
             			
                 		player.jump(true);
+                		player.grounded = false;
             		}
             	}
             	
@@ -1167,6 +1171,7 @@ public class GameManager extends GameCore {
             		}
         			player.setY(badguy.getY() - player.getHeight());
         			player.jump(true);
+        			player.grounded = false;
             	}
             	execute=true;
             }
