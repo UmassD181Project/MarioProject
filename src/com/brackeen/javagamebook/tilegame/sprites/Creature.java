@@ -25,11 +25,11 @@ public abstract class Creature extends Sprite {
     public static float enemySpeedMultiplier		= 1.0f;
     public static float enemyJumpSpeedMultiplier	= 1.0f;
     
-    private Animation left;
-    private Animation right;
-    private Animation deadLeft;
-    private Animation deadRight;
-    private int state;
+    protected Animation left;
+    protected Animation right;
+    protected Animation deadLeft;
+    protected Animation deadRight;
+    protected int state;
     private long stateTime;
     protected Throwable e = new Throwable();
     

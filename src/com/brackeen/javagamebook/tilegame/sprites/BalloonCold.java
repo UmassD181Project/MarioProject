@@ -3,10 +3,16 @@ package com.brackeen.javagamebook.tilegame.sprites;
 import com.brackeen.javagamebook.codereflection.CodeReflection;
 import com.brackeen.javagamebook.graphics.Animation;
 
+
 public class BalloonCold extends Balloon//Creature
 {
+	private Animation leftH;
+	private Animation rightH;
+	private Animation deadLeftH;
+	private Animation deadRightH; 
+	
 	public BalloonCold(Animation left, Animation right, Animation deadLeft,
-			Animation deadRight) 
+			Animation deadRight, Animation leftHin, Animation rightHin, Animation deadLeftHin, Animation deadRightHin) 
 	{
 		//Call Creature constructor
 		super(left, right, deadLeft, deadRight);
@@ -19,6 +25,10 @@ public class BalloonCold extends Balloon//Creature
         								e.getStackTrace()[0].getMethodName());
         	}
     	}
+    	leftH=leftHin;
+    	rightH=rightHin;
+    	deadLeftH=deadLeftHin;
+    	deadRightH=deadRightHin;
 		//Give 2 Health
     	health=2;
 		//Define as helper; can take but not deal damage.
@@ -30,17 +40,18 @@ public class BalloonCold extends Balloon//Creature
 		//give 2 health
 		setHealth(2);
 	}
-	public float getMaxSpeed() 
+
+	public void update(long elapsedTime) 
 	{
-    	if(CodeReflection.isTracing() && SpritesPackageTracingEnabled.getSpritesPackageTracingEnabledInstance().isEnabled()) 
+		Animation newAnim = anim;
+    	super.update(elapsedTime);
+    	if(state == STATE_HURT )
     	{
-        	if(CodeReflection.getAbstactionLevel()>=2)
-        	{//check to make sure it's this level of abstraction
-        		e.fillInStackTrace();		
-        		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
-        								e.getStackTrace()[0].getMethodName());
-        	}
+    		left=leftH;
+    		right=rightH;
+    		deadLeft=deadLeftH;
+    		deadRight=deadRightH;
     	}
-        return 0.2f;
     }
+    
 }

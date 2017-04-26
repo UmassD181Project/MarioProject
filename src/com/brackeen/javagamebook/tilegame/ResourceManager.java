@@ -402,11 +402,12 @@ public class ResourceManager {
         Animation[][] enemyAnim =new Animation[enemies][4]; 
         
         //Create Animation
-        for (int i=0; i<4; i++) {
+        int x=0;
+        for(x=0; x<enemies;x++){
         	imageIndex=0;
-            playerAnim[i] = createPlayerAnim(
-                images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
-            for(int x=0; x<enemies;x++)
+            //playerAnim[i] = createPlayerAnim(
+                //images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
+            	for (int i=0; i<4; i++) 
             	if(s.getArchType(x).compareTo("grub")==0)
                     enemyAnim[x][i] = createGrubAnim(
                             images[i][imageIndex++], images[i][imageIndex++]);	
@@ -438,14 +439,16 @@ public class ResourceManager {
             	if(s.getArchType(x).compareTo("balloon")==0)
             		enemyAnim[x][i]=createFlyAnim(
             				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
-          //Editfield
-            	else
-                if(s.getArchType(x).compareTo("balloonCold")==0)
-               		enemyAnim[x][i]=createColdAnim(
-               				images[i][imageIndex++], images[i][imageIndex++]);
-          //Editfield
         }
-
+      //Editfield
+        
+        for(int i=0; i<8; i++)
+        {
+        	if(s.getArchType(x).compareTo("balloonCold")==0)
+        		enemyAnim[x][i]=createColdAnim(
+        				images, i, imageIndex++);
+        }
+    	//Editfield
         // create creature sprites
         playerSprite = new Player(playerAnim[0], playerAnim[1],
             playerAnim[2], playerAnim[3]);
@@ -454,43 +457,43 @@ public class ResourceManager {
         enemySprites= new Creature[enemies]; 	//initialize space
 
         //Create Enemies
-        for(int x=0; x<enemies;x++)
-        	if(s.getArchType(x).compareTo("grub")==0)
-        		enemySprites[x]=new Grub(enemyAnim[x][0], enemyAnim[x][1],
-        				enemyAnim[x][2], enemyAnim[x][3]);
+        for(int y=0; y<enemies;y++)
+        	if(s.getArchType(y).compareTo("grub")==0)
+        		enemySprites[y]=new Grub(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
         	else
-        	if(s.getArchType(x).compareTo("fly")==0)
-        		enemySprites[x] = new Fly(enemyAnim[x][0], enemyAnim[x][1],
-        				enemyAnim[x][2], enemyAnim[x][3]);
+        	if(s.getArchType(y).compareTo("fly")==0)
+        		enemySprites[y] = new Fly(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
         	else
-        	if(s.getArchType(x).compareTo("monkey")==0)
-        		enemySprites[x]=new Monkey(enemyAnim[x][0], enemyAnim[x][1],
-        				enemyAnim[x][2], enemyAnim[x][3]);   
+        	if(s.getArchType(y).compareTo("monkey")==0)
+        		enemySprites[y]=new Monkey(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);   
         	else
-            if(s.getArchType(x).compareTo("boss")==0)
-            	enemySprites[x]=new Boss(enemyAnim[x][0], enemyAnim[x][1],
-            			enemyAnim[x][2], enemyAnim[x][3]); 
+            if(s.getArchType(y).compareTo("boss")==0)
+            	enemySprites[y]=new Boss(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]); 
             else
-            if(s.getArchType(x).compareTo("sinuousfly")==0)
-            	enemySprites[x]=new SinuousFly(enemyAnim[x][0], enemyAnim[x][1],
-            			enemyAnim[x][2], enemyAnim[x][3]);
+            if(s.getArchType(y).compareTo("sinuousfly")==0)
+            	enemySprites[y]=new SinuousFly(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]);
             else
-            if(s.getArchType(x).compareTo("homingfly")==0)
-            	enemySprites[x]=new HomingFly(enemyAnim[x][0], enemyAnim[x][1],
-            			enemyAnim[x][2], enemyAnim[x][3]);
+            if(s.getArchType(y).compareTo("homingfly")==0)
+            	enemySprites[y]=new HomingFly(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]);
             else
-            if(s.getArchType(x).compareTo("randomfly")==0)
-            	enemySprites[x]=new RandomFly(enemyAnim[x][0], enemyAnim[x][1],
-            			enemyAnim[x][2], enemyAnim[x][3]);
+            if(s.getArchType(y).compareTo("randomfly")==0)
+            	enemySprites[y]=new RandomFly(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]);
           else
-            if(s.getArchType(x).compareTo("balloon")==0)
-            	enemySprites[x]=new Balloon(enemyAnim[x][0], enemyAnim[x][1],
-            			enemyAnim[x][2], enemyAnim[x][3]);
+            if(s.getArchType(y).compareTo("balloon")==0)
+            	enemySprites[y]=new Balloon(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]);
       //Editfield
             else
-        	if(s.getArchType(x).compareTo("balloonCold")==0)
-        		enemySprites[x]=new BalloonCold(enemyAnim[x][0], enemyAnim[x][1],
-        				enemyAnim[x][2], enemyAnim[x][3]);
+        	if(s.getArchType(y).compareTo("balloonCold")==0)
+        		enemySprites[y]=new BalloonCold(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
       //Editfield
     }
     
@@ -695,7 +698,7 @@ public class ResourceManager {
         anim.addFrame(img2, 50);
         return anim;
     }
-    private Animation createColdAnim(Image img1, Image img2)
+    private Animation createColdAnim(Image array[][], int index, int images)
         {
         	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
             	if(CodeReflection.getAbstactionLevel()>=0)
@@ -706,8 +709,7 @@ public class ResourceManager {
             	}
         	}
             Animation anim = new Animation();
-            anim.addFrame(img1, 150);            
-            anim.addFrame(img2, 150);
+            anim.addFrame(array[index][images], 150);            
             return anim;
         }
 
