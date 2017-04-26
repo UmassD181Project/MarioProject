@@ -1,6 +1,6 @@
 F                                                            f                                     I
 HF                                                                                                 I
-AHF                   g               EBBF       I   h             I      e  b   III               I
-AAHF                          EBBBBBBBGAAD                                  III                    I
-AAAHF                        EGAAAAAAAAAAD               II           III             I          * I
-AAAAHBBBBBBBBBBBBBBBBBBBBBBBBGAAAAAAAAAAAHBBBBBBBBBB   II  II    III                      I   I  III
+AHF                   g               EBBF       K   h             K      e  b   KKK               I
+AAHF                          EBBBBBBBGAAD                                  KKK                    I
+AAAHF                        EGAAAAAAAAAAD               KK           KKK             K          * I
+AAAAHBBBBBBBBBBBBBBBBBBBBBBBBGAAAAAAAAAAAHBBBBBBBBBB   KK  KK    KKK                      K   K  KKI

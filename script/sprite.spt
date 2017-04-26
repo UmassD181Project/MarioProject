@@ -15,12 +15,23 @@
 8
 ####################################
 #Total Sprite Images (including player sprites)
-26
+35
 ####################################
 #Player
->player1.png
->player2.png
->player3.png
+>p2_walk01.png
+>p2_walk02.png
+>p2_walk03.png
+>p2_walk04.png
+>p2_walk05.png
+>p2_walk06.png
+>p2_walk07.png
+>p2_walk08.png
+>p2_walk09.png
+>p2_walk10.png
+>p2_walk11.png
+####################################
+#Player-Jump
+>p2_jump.png
 ####################################
 #Enemies
 # archtype followed by images

@@ -372,7 +372,7 @@ public class ResourceManager {
     	int sprites, enemies, imageIndex=0;
     	
     	sprites=s.getNumberOfSprites();		//get total number of sprites
-    	Image[][] images = new Image[4][];
+    	Image[][] images = new Image[6][];
 
         // load left-facing images
         images[0] = new Image[sprites] ;
@@ -382,6 +382,8 @@ public class ResourceManager {
         images[1] = new Image[images[0].length];
         images[2] = new Image[images[0].length];
         images[3] = new Image[images[0].length];
+       // images[4] = new Image[images[0].length];
+       // images[5] = new Image[images[0].length];
         
         for (int i=0; i<images[0].length; i++) {
             // right-facing images
@@ -390,10 +392,13 @@ public class ResourceManager {
             images[2][i] = getFlippedImage(images[0][i]);
             // right-facing "dead" images
             images[3][i] = getFlippedImage(images[1][i]);
+            //images[4][i] = getFlippedImage(images[0][i]);
+            // right-facing "dead" images
+           // images[5][i] = getFlippedImage(images[1][i]);
         }
 
         // create creature animations
-        Animation[] playerAnim = new Animation[4];
+        Animation[] playerAnim = new Animation[6];
         /*Animation[] flyAnim = new Animation[4];
         Animation[] grubAnim = new Animation[4];
         Animation[] monkeyAnim = new Animation[4];*/
@@ -403,9 +408,7 @@ public class ResourceManager {
         
         //Create Animation
         for (int i=0; i<4; i++) {
-        	imageIndex=0;
-            playerAnim[i] = createPlayerAnim(
-                images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
+        	imageIndex=12;
             for(int x=0; x<enemies;x++)
             	if(s.getArchType(x).compareTo("grub")==0)
                     enemyAnim[x][i] = createGrubAnim(
@@ -439,10 +442,19 @@ public class ResourceManager {
             		enemyAnim[x][i]=createFlyAnim(
             				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
         }
+        
+        for (int i=0; i<4; i++)
+        {
+        	imageIndex=0;
+        	playerAnim[i] = createPlayerAnim(i,
+            images);
+        }
+        playerAnim[4] = createPlayerAnim(0,images);
+        playerAnim[5] = createPlayerAnim(1,images);
 
         // create creature sprites
         playerSprite = new Player(playerAnim[0], playerAnim[1],
-            playerAnim[2], playerAnim[3]);
+            playerAnim[2], playerAnim[3], playerAnim[4],playerAnim[5]);
        
         enemies = s.getNumberOfEnemies();      
         enemySprites= new Creature[enemies]; 	//initialize space
@@ -642,9 +654,8 @@ public class ResourceManager {
     	return(s);
     }
     
-    
-    private Animation createPlayerAnim(Image player1,
-        Image player2, Image player3)
+    //TODO finish player anim
+    private Animation createPlayerAnim(int typeIndex,Image images[][])
     {
     	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=0)
@@ -655,12 +666,26 @@ public class ResourceManager {
         	}
     	}
         Animation anim = new Animation();
-        anim.addFrame(player1, 250);
-        anim.addFrame(player2, 150);
-        anim.addFrame(player1, 150);
-        anim.addFrame(player2, 150);
-        anim.addFrame(player3, 200);
-        anim.addFrame(player2, 150);
+        for(int I =0; I < 11 ;I++)
+        {
+        	anim.addFrame(images[typeIndex][I], 85);
+        }
+        return anim;
+    }
+    private Animation createPlayerJumpAnim(int typeIndex,Image images[][])
+    {
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
+        	if(CodeReflection.getAbstactionLevel()>=0)
+        	{//check to make sure it's this level of abstraction
+        		e.fillInStackTrace();		
+        		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+        								e.getStackTrace()[0].getMethodName());
+        	}
+    	}
+        Animation anim = new Animation();
+        
+        	anim.addFrame(images[typeIndex][11], 85);
+       
         return anim;
     }
 

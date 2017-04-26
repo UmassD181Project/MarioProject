@@ -166,7 +166,11 @@ public abstract class GameCore extends JFrame {
 		{
 			public void paintComponent(Graphics g)
 			{
+
 				g.drawImage(background.getImage(),0,0,null);
+
+				g.drawImage(background.getImage(),0,0,screen.getWidth(),screen.getHeight(),null);
+
 				g.setColor(Color.RED);
 				//this.setOpaque(false);
 				super.paintComponent(g);
@@ -211,7 +215,11 @@ public abstract class GameCore extends JFrame {
 							buttonPanel.setBackground(new Color(0,0,0,0));
 							buttonPanel.setOpaque(false);
 							
+
 							exitButton.setBounds(screen.frame().getWidth()/2-150,screen.frame().getHeight()/2,95,30);
+
+							exitButton.setBounds(screen.getWidth()/2-150,screen.getHeight()/2,95,30);
+
 							window.setVisible(true);
 							//window.setBackground(new Color(0,0,0,0.0f));
 							buttonPanel.setLayout(null);
