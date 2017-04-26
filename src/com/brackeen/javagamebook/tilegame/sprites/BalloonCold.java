@@ -3,7 +3,7 @@ package com.brackeen.javagamebook.tilegame.sprites;
 import com.brackeen.javagamebook.codereflection.CodeReflection;
 import com.brackeen.javagamebook.graphics.Animation;
 
-public class BalloonCold extends Balloon
+public class BalloonCold extends Balloon//Creature
 {
 	public BalloonCold(Animation left, Animation right, Animation deadLeft,
 			Animation deadRight) 

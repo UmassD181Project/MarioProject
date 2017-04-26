@@ -434,10 +434,16 @@ public class ResourceManager {
             	if(s.getArchType(x).compareTo("randomfly")==0)
             		enemyAnim[x][i]=createFlyAnim(
             				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
-            	else
+                else
             	if(s.getArchType(x).compareTo("balloon")==0)
             		enemyAnim[x][i]=createFlyAnim(
             				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
+          //Editfield
+            	else
+                if(s.getArchType(x).compareTo("balloonCold")==0)
+               		enemyAnim[x][i]=createColdAnim(
+               				images[i][imageIndex++], images[i][imageIndex++]);
+          //Editfield
         }
 
         // create creature sprites
@@ -476,10 +482,16 @@ public class ResourceManager {
             if(s.getArchType(x).compareTo("randomfly")==0)
             	enemySprites[x]=new RandomFly(enemyAnim[x][0], enemyAnim[x][1],
             			enemyAnim[x][2], enemyAnim[x][3]);
-            else
+          else
             if(s.getArchType(x).compareTo("balloon")==0)
             	enemySprites[x]=new Balloon(enemyAnim[x][0], enemyAnim[x][1],
             			enemyAnim[x][2], enemyAnim[x][3]);
+      //Editfield
+            else
+        	if(s.getArchType(x).compareTo("balloonCold")==0)
+        		enemySprites[x]=new BalloonCold(enemyAnim[x][0], enemyAnim[x][1],
+        				enemyAnim[x][2], enemyAnim[x][3]);
+      //Editfield
     }
     
     public String levelBackground()
@@ -683,6 +695,21 @@ public class ResourceManager {
         anim.addFrame(img2, 50);
         return anim;
     }
+    private Animation createColdAnim(Image img1, Image img2)
+        {
+        	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
+            	if(CodeReflection.getAbstactionLevel()>=0)
+            	{//check to make sure it's this level of abstraction
+            		e.fillInStackTrace();		
+            		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+            								e.getStackTrace()[0].getMethodName());
+            	}
+        	}
+            Animation anim = new Animation();
+            anim.addFrame(img1, 150);            
+            anim.addFrame(img2, 150);
+            return anim;
+        }
 
 
     private Animation createGrubAnim(Image img1, Image img2) {

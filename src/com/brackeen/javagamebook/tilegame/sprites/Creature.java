@@ -45,7 +45,10 @@ public abstract class Creature extends Sprite {
     protected boolean canTakeDamage;
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    protected int health;
+    protected  int health;
+    //Editfield
+    public static boolean hurt=false;
+    //Editfield
     
     protected float horizontalResponceTime = 25.5f;
     protected float verticalResponceTime = 25.5f;
