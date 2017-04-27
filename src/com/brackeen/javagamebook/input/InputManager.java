@@ -23,6 +23,10 @@ public class InputManager implements KeyListener, MouseListener,
             Toolkit.getDefaultToolkit().getImage(""),
             new Point(0,0),
             "invisible");
+    public static final Cursor VISIBLE_CURSOR =
+    		Toolkit.getDefaultToolkit().createCustomCursor(
+    		Toolkit.getDefaultToolkit().getImage("images/arrowCursor.png"),
+			new Point(0,0),"visible");
 
     // mouse codes
     public static final int MOUSE_MOVE_LEFT = 0;

@@ -372,7 +372,7 @@ public class ResourceManager {
     	int sprites, enemies, imageIndex=0;
     	
     	sprites=s.getNumberOfSprites();		//get total number of sprites
-    	Image[][] images = new Image[4][];
+    	Image[][] images = new Image[6][];
 
         // load left-facing images
         images[0] = new Image[sprites] ;
@@ -382,6 +382,8 @@ public class ResourceManager {
         images[1] = new Image[images[0].length];
         images[2] = new Image[images[0].length];
         images[3] = new Image[images[0].length];
+       // images[4] = new Image[images[0].length];
+       // images[5] = new Image[images[0].length];
         
         for (int i=0; i<images[0].length; i++) {
             // right-facing images
@@ -393,21 +395,20 @@ public class ResourceManager {
         }
 
         // create creature animations
-        Animation[] playerAnim = new Animation[4];
+        Animation[] playerAnim = new Animation[6];
         /*Animation[] flyAnim = new Animation[4];
         Animation[] grubAnim = new Animation[4];
         Animation[] monkeyAnim = new Animation[4];*/
         enemies= s.getNumberOfEnemies();
         
-        Animation[][] enemyAnim =new Animation[enemies][4]; 
+        Animation[][] enemyAnim =new Animation[enemies][8]; 
         
         //Create Animation
-        int x=0;
-        for(x=0; x<enemies;x++){
-        	imageIndex=0;
-            //playerAnim[i] = createPlayerAnim(
-                //images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
-            	for (int i=0; i<4; i++) 
+        int x=0;       
+        for (int i=0; i<4; i++){
+        	imageIndex=12;
+        	for(x=0; x<enemies;x++)
+            {
             	if(s.getArchType(x).compareTo("grub")==0)
                     enemyAnim[x][i] = createGrubAnim(
                             images[i][imageIndex++], images[i][imageIndex++]);	
@@ -435,23 +436,39 @@ public class ResourceManager {
             	if(s.getArchType(x).compareTo("randomfly")==0)
             		enemyAnim[x][i]=createFlyAnim(
             				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
+            	else
+                	if(s.getArchType(x).compareTo("balloon")==0)
+                		enemyAnim[x][i]=createFlyAnim(
+                				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
                 else
-            	if(s.getArchType(x).compareTo("balloon")==0)
-            		enemyAnim[x][i]=createFlyAnim(
-            				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
+                   	if(s.getArchType(x).compareTo("frog")==0)
+                   		enemyAnim[x][i]=createFrogAnim(
+                   				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
         }
-      //Editfield
-        
-        for(int i=0; i<8; i++)
+            
+        }
+        /*//Editfield
+        for(x=x; x<enemies; x++){
+        	for(int i=0; i<8; i++)
+        	{
+        		if(s.getArchType(x).compareTo("balloonCold")==0)
+        			enemyAnim[x][i]=createColdAnim(
+        					images, i, imageIndex++);
+        	}
+        }
+    	//Editfield*/      
+        for (int i=0; i<4; i++)
         {
-        	if(s.getArchType(x).compareTo("balloonCold")==0)
-        		enemyAnim[x][i]=createColdAnim(
-        				images, i, imageIndex++);
+        	imageIndex=0;
+        	playerAnim[i] = createPlayerAnim(i,
+            images);
         }
-    	//Editfield
+        playerAnim[4] = createPlayerJumpAnim(0,images);
+        playerAnim[5] = createPlayerJumpAnim(1,images);
+
         // create creature sprites
         playerSprite = new Player(playerAnim[0], playerAnim[1],
-            playerAnim[2], playerAnim[3]);
+            playerAnim[2], playerAnim[3], playerAnim[4],playerAnim[5]);
        
         enemies = s.getNumberOfEnemies();      
         enemySprites= new Creature[enemies]; 	//initialize space
@@ -485,16 +502,21 @@ public class ResourceManager {
             if(s.getArchType(y).compareTo("randomfly")==0)
             	enemySprites[y]=new RandomFly(enemyAnim[y][0], enemyAnim[y][1],
             			enemyAnim[y][2], enemyAnim[y][3]);
-          else
-            if(s.getArchType(y).compareTo("balloon")==0)
-            	enemySprites[y]=new Balloon(enemyAnim[y][0], enemyAnim[y][1],
-            			enemyAnim[y][2], enemyAnim[y][3]);
-      //Editfield
+            else
+                if(s.getArchType(y).compareTo("balloon")==0)
+                	enemySprites[y]=new Balloon(enemyAnim[y][0], enemyAnim[y][1],
+                			enemyAnim[y][2], enemyAnim[y][3]);
+              else
+                  if(s.getArchType(y).compareTo("frog")==0)
+                 	enemySprites[y]=new Frog(enemyAnim[y][0], enemyAnim[y][1],
+                  			enemyAnim[y][2], enemyAnim[y][3]);
+        
+      /*//Editfield
             else
         	if(s.getArchType(y).compareTo("balloonCold")==0)
         		enemySprites[y]=new BalloonCold(enemyAnim[y][0], enemyAnim[y][1],
-        				enemyAnim[y][2], enemyAnim[y][3]);
-      //Editfield
+        				enemyAnim[y][2], enemyAnim[y][3], enemyAnim[y][4], enemyAnim[y][5], enemyAnim[y][6], enemyAnim[y][7]);
+      //Editfield*/
     }
     
     public String levelBackground()
@@ -644,6 +666,21 @@ public class ResourceManager {
     	return(s.getSoundByReference("hurt"));
     }
     
+    //credit sound entry 
+    public String getCreditSound() 
+    {	//return the sound for the end credits
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()){
+    		if(CodeReflection.getAbstactionLevel()>=0)
+    		{//check to make sure it's this level of abstraction
+    			e.fillInStackTrace();
+    			CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+						e.getStackTrace()[0].getMethodName());
+    			
+    		}
+    	}
+    	return (s.getSoundByReference("credits"));
+	}
+    
     public ScriptManager getScriptClass()
     {	//return your instance of s
     	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
@@ -657,9 +694,8 @@ public class ResourceManager {
     	return(s);
     }
     
-    
-    private Animation createPlayerAnim(Image player1,
-        Image player2, Image player3)
+    //TODO finish player anim
+    private Animation createPlayerAnim(int typeIndex,Image images[][])
     {
     	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=0)
@@ -670,12 +706,26 @@ public class ResourceManager {
         	}
     	}
         Animation anim = new Animation();
-        anim.addFrame(player1, 250);
-        anim.addFrame(player2, 150);
-        anim.addFrame(player1, 150);
-        anim.addFrame(player2, 150);
-        anim.addFrame(player3, 200);
-        anim.addFrame(player2, 150);
+        for(int I =0; I < 11 ;I++)
+        {
+        	anim.addFrame(images[typeIndex][I], 85);
+        }
+        return anim;
+    }
+    private Animation createPlayerJumpAnim(int typeIndex,Image images[][])
+    {
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
+        	if(CodeReflection.getAbstactionLevel()>=0)
+        	{//check to make sure it's this level of abstraction
+        		e.fillInStackTrace();		
+        		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+        								e.getStackTrace()[0].getMethodName());
+        	}
+    	}
+        Animation anim = new Animation();
+        
+        	anim.addFrame(images[typeIndex][11], 85);
+       
         return anim;
     }
 
@@ -712,6 +762,28 @@ public class ResourceManager {
             anim.addFrame(array[index][images], 150);            
             return anim;
         }
+    //TODO: frog anim; stand still, jump, toungue animations
+    private Animation createFrogAnim(Image img1, Image img2,
+            Image img3, Image img4)
+    {
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
+        	if(CodeReflection.getAbstactionLevel()>=0)
+        	{//check to make sure it's this level of abstraction
+        		e.fillInStackTrace();		
+        		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+        								e.getStackTrace()[0].getMethodName());
+        	}
+    	}
+        Animation anim = new Animation();
+        anim.addFrame(img1, 200);
+        anim.addFrame(img2, 100);
+        anim.addFrame(img3, 100);
+        anim.addFrame(img4, 100);
+        anim.addFrame(img3, 100);
+        anim.addFrame(img2, 100);
+        anim.addFrame(img1, 200);
+        return anim;
+    }
 
 
     private Animation createGrubAnim(Image img1, Image img2) {
@@ -852,5 +924,8 @@ public class ResourceManager {
 	    	}
 	 	return(s.getLevelMappingFile());
 	 }
+
+
+	
 
 }

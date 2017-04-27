@@ -14,13 +14,14 @@ public abstract class Creature extends Sprite {
     /**
         Amount of time to go from STATE_DYING to STATE_DEAD.
     */
-    private static final int DIE_TIME = 1000;
-    private static final int HURT_TIME = 300;
+    protected static final int DIE_TIME = 1000;
+    protected static final int HURT_TIME = 300;
     
     public static final int STATE_NORMAL = 0;
     public static final int STATE_DYING = 1;
     public static final int STATE_DEAD = 2;
     public static final int STATE_HURT = 3;
+    public static final int STATE_JUMPING = 4;
     
     public static float enemySpeedMultiplier		= 1.0f;
     public static float enemyJumpSpeedMultiplier	= 1.0f;
@@ -30,7 +31,7 @@ public abstract class Creature extends Sprite {
     protected Animation deadLeft;
     protected Animation deadRight;
     protected int state;
-    private long stateTime;
+    protected long stateTime;
     protected Throwable e = new Throwable();
     
     protected long totalElapsedTime = 0;

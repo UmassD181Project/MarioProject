@@ -69,8 +69,27 @@ public class ScriptManager
 	    listOfImages[1]=line.substring(1);
 	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
 	    listOfImages[2]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[3]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[4]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[5]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[6]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[7]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[8]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[9]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[10]=line.substring(1);
+	    //Jump image
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[11]=line.substring(1);
 	    
-	    imageIndex=3;//Init
+	    imageIndex=12;//Init
 	    archIndex=0; //init
 	    //Load enemy image names and archtypes
 		while ((line=reader.readLine()) != null) 
