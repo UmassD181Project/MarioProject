@@ -7,7 +7,7 @@ import com.brackeen.javagamebook.tilegame.GameManager;
 import com.brackeen.javagamebook.tilegame.ScriptManager;
 import com.brackeen.javagamebook.eventlisteners.*;
 
-public class OptionsMenu extends JFrame{
+public class OptionsMenu extends JPanel{
 	
 	private JButton 		doneButton;
 	private JCheckBox 		fullScreenCheckBox;
@@ -116,6 +116,6 @@ public class OptionsMenu extends JFrame{
 		
 		this.setSize(400,400);
     	this.add(optionsContainer);
-    	this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    	
 	}
 }

@@ -11,8 +11,10 @@ import com.brackeen.javagamebook.codereflection.*;
 */
 
 public class Player extends Creature {
-    public static Animation jumpLeft;
+    public Animation jumpLeft;
     public Animation jumpRight;
+    public Animation standRight;
+    public Animation standLeft;
 //    private Throwable e = new Throwable();
     
 	public int consecutiveHits=0;
@@ -20,11 +22,13 @@ public class Player extends Creature {
 	public static float playerJumpSpeedMultiplier = 1.0f;
 	
     public Player(Animation left, Animation right,
-        Animation deadLeft, Animation deadRight,Animation jumpLeft,Animation jumpRight)
+        Animation deadLeft, Animation deadRight,Animation jumpLeft,Animation jumpRight,Animation standRight,Animation standLeft)
     {
     	 super(left, right, deadLeft,  deadRight);
     	 this.jumpLeft=jumpLeft;
     	 this.jumpRight=jumpRight;
+    	 this.standRight=standRight;
+    	 this.standLeft=standLeft;
     	 
     	
     	 
@@ -42,7 +46,14 @@ public class Player extends Creature {
     {
     	// select the correct Animation
         Animation newAnim = anim;
-        
+        if(onGround && getVelocityX() == 0.0f&&!(getVelocityY() > 0 ||getVelocityY() < 0) && (newAnim == right||newAnim == jumpLeft))
+        {
+        	newAnim = standLeft;
+        }
+        if(onGround && getVelocityX() == 0.0f&&!(getVelocityY() > 0 ||getVelocityY() < 0) && (newAnim == left||newAnim == jumpRight))
+        {
+        	newAnim = standRight;
+        }
         if (getVelocityX() < 0 && onGround && !(getVelocityY() > 0 ||getVelocityY() < 0))  {
             newAnim = left;
         }
@@ -56,6 +67,7 @@ public class Player extends Creature {
         {
             newAnim = jumpLeft;
         }
+       
         if ((state == STATE_DYING || state == STATE_HURT) && newAnim == left) {
             newAnim = deadLeft;
         }
@@ -96,7 +108,9 @@ public class Player extends Creature {
                 (Animation)deadLeft.clone(),
                 (Animation)deadRight.clone(),
                 (Animation)jumpLeft.clone(),
-                (Animation)jumpRight.clone()
+                (Animation)jumpRight.clone(),
+                (Animation)standLeft.clone(),
+                (Animation)standRight.clone()
             });
         }
         catch (Exception ex) {
