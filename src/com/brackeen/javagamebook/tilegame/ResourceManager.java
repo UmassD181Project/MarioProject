@@ -392,21 +392,24 @@ public class ResourceManager {
             images[2][i] = getFlippedImage(images[0][i]);
             // right-facing "dead" images
             images[3][i] = getFlippedImage(images[1][i]);
+            //images[4][i] = getFlippedImage(images[0][i]);
+            // right-facing "dead" images
+           // images[5][i] = getFlippedImage(images[1][i]);
         }
 
         // create creature animations
-        Animation[] playerAnim = new Animation[6];
+        Animation[] playerAnim = new Animation[8];
         /*Animation[] flyAnim = new Animation[4];
         Animation[] grubAnim = new Animation[4];
         Animation[] monkeyAnim = new Animation[4];*/
         enemies= s.getNumberOfEnemies();
         
-        Animation[][] enemyAnim =new Animation[enemies][8]; 
+        Animation[][] enemyAnim =new Animation[enemies][4]; 
         
         //Create Animation
         int x=0;       
         for (int i=0; i<4; i++){
-        	imageIndex=12;
+        	imageIndex=13;
         	for(x=0; x<enemies;x++)
             {
             	if(s.getArchType(x).compareTo("grub")==0)
@@ -466,9 +469,12 @@ public class ResourceManager {
         playerAnim[4] = createPlayerJumpAnim(0,images);
         playerAnim[5] = createPlayerJumpAnim(1,images);
 
+
+        playerAnim[6] = createPlayerStandAnim(0,images);
+        playerAnim[7] = createPlayerStandAnim(1,images);
         // create creature sprites
         playerSprite = new Player(playerAnim[0], playerAnim[1],
-            playerAnim[2], playerAnim[3], playerAnim[4],playerAnim[5]);
+            playerAnim[2], playerAnim[3], playerAnim[4],playerAnim[5],playerAnim[6],playerAnim[7]);
        
         enemies = s.getNumberOfEnemies();      
         enemySprites= new Creature[enemies]; 	//initialize space
@@ -729,7 +735,22 @@ public class ResourceManager {
         return anim;
     }
 
-
+    private Animation createPlayerStandAnim(int typeIndex,Image images[][])
+    {
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
+        	if(CodeReflection.getAbstactionLevel()>=0)
+        	{//check to make sure it's this level of abstraction
+        		e.fillInStackTrace();		
+        		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+        								e.getStackTrace()[0].getMethodName());
+        	}
+    	}
+        Animation anim = new Animation();
+        
+        	anim.addFrame(images[typeIndex][12], 85);
+       
+        return anim;
+    }
     private Animation createFlyAnim(Image img1, Image img2,
         Image img3)
     {
