@@ -258,7 +258,7 @@ public class ResourceManager {
                 }
 
                 // check if the char represents a sprite
-                else if (ch == 'o') {
+                else if (ch == '&') {
                     addSprite(newMap, coinSprite, x, y);
                 }
                 else if (ch == '!') {
@@ -458,8 +458,15 @@ public class ResourceManager {
                    	if(s.getArchType(x).compareTo("ghost")==0)
                         enemyAnim[x][i] = createGhostAnim(images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
                 else
-                  	if(s.getArchType(x).compareTo("bush")==0)
-                        enemyAnim[x][i] = createDecoAnim(images[i][imageIndex++]);
+                    if(s.getArchType(x).compareTo("bush")==0)
+                        enemyAnim[x][i] = createDecoAnim(images[i][imageIndex++], images[i][imageIndex++]);
+                else
+                    if(s.getArchType(x).compareTo("saw")==0)
+                        enemyAnim[x][i] = createDecoAnim(images[i][imageIndex++], images[i][imageIndex++]);
+                else
+                    if(s.getArchType(x).compareTo("mage")==0)
+                        enemyAnim[x][i] = createMageAnim(images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++],
+                        		 images[i][imageIndex++], images[i][imageIndex++]);
                 }
                             
             
@@ -542,6 +549,12 @@ public class ResourceManager {
         				enemyAnim[y][2], enemyAnim[y][3]);
         	else if(s.getArchType(y).compareTo("bush")==0)
         		enemySprites[y]=new Decoration(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("saw")==0)
+        		enemySprites[y]=new Hazard(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("mage")==0)
+        		enemySprites[y]=new Mage(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);
       /*//Editfield
             else
@@ -852,7 +865,26 @@ public class ResourceManager {
         anim.addFrame(img1, 100);
         return anim;
     }
-    private Animation createDecoAnim(Image img1) {
+    private Animation createMageAnim(Image img1, Image img2, Image img3, Image img4, Image img5, Image img6, Image img7) {
+    	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
+        	if(CodeReflection.getAbstactionLevel()>=0)
+        	{//check to make sure it's this level of abstraction
+        		e.fillInStackTrace();		
+        		CodeReflection.registerMethod(e.getStackTrace()[0].getClassName(),
+        								e.getStackTrace()[0].getMethodName());
+        	}
+    	}
+        Animation anim = new Animation();
+        anim.addFrame(img1, 200);
+        anim.addFrame(img2, 100);
+        anim.addFrame(img3, 100);
+        anim.addFrame(img4, 100);
+        anim.addFrame(img5, 100);
+        anim.addFrame(img6, 100);
+        anim.addFrame(img7, 100);
+        return anim;
+    }
+    private Animation createDecoAnim(Image img1, Image img2) {
     	if(CodeReflection.isTracing() && TilegamePackageTracingEnabled.getTilegamePackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=0)
         	{//check to make sure it's this level of abstraction
@@ -863,6 +895,7 @@ public class ResourceManager {
     	}
         Animation anim = new Animation();
         anim.addFrame(img1, 100);
+        anim.addFrame(img2, 100);
         return anim;
     }
     //TODO: Crusher/umbrella

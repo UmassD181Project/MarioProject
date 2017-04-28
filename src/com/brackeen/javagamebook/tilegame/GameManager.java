@@ -1084,7 +1084,7 @@ public class GameManager extends GameCore {
         }
         else if (collisionSprite instanceof Creature) {
             Creature badguy = (Creature)collisionSprite;
-            if (canKill && !((badguy instanceof Ghost) || (badguy instanceof Decoration))) {
+            if (canKill && !((badguy instanceof Ghost) || (badguy instanceof Decoration) || (badguy instanceof Hazard))) {
                 // kill the badguy and make player bounce, and increase score
             	
             	//Multiplier is equal to base level multiplier times 2^numberOfBadGuysKilled
@@ -1206,7 +1206,31 @@ public class GameManager extends GameCore {
 	            			hitClock=MAX_HIT_CLOCK;
 	            			if(SOUND_ON)
 	            				soundManager.play(hurtSound);
-	            			health--;	//deduct from players health
+	            			//If badguy is a hazard, kills the player instantly regardless of health.
+	            			if(badguy instanceof Hazard)
+	            			{
+	            				health=0;
+	            				midiPlayer.stop();
+	    	            		
+	    	            		if(SOUND_ON)
+	    	            			soundManager.play(dieSound);
+	    	            		player.setState(Creature.STATE_DYING);
+	    	                
+	    	            		//reset score multipliers
+	    	            		this.baseScoreMultiplier=1.0f;
+	    	            		scoreBoard.setMultiplier(this.baseScoreMultiplier);
+	    	            	
+	    	            		player.consecutiveHits=0;
+	    	            		totalElapsedTime = 0;
+	    	            		
+	    	            		//reset Star total
+	    	            		scoreBoard.setStarTotal(0);
+	            			}
+	            			else
+	            			{
+	            				//deduct from players health
+	            				health--;
+	            			}
 	            		}
             	}
             }
