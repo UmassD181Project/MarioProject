@@ -58,7 +58,6 @@ public class StartMenu extends JFrame{
     	this.add(screenContainer);
     	//c=screenContainer;
 		card=new CardLayout(40,30);  
-		//create CardLayout object with 40 hor space and 30 ver space  
 		//c.setLayout(card);  
     	//c.add(scrollPane,"Main");
 
