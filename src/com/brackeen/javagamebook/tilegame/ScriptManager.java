@@ -88,8 +88,10 @@ public class ScriptManager
 	    //Jump image
 	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
 	    listOfImages[11]=line.substring(1);
+	    while((line=reader.readLine()).charAt(0)=='#');//skip comments
+	    listOfImages[12]=line.substring(1);
 	    
-	    imageIndex=12;//Init
+	    imageIndex=13;//Init
 	    archIndex=0; //init
 	    //Load enemy image names and archtypes
 		while ((line=reader.readLine()) != null) 
