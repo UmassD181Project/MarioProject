@@ -1084,7 +1084,7 @@ public class GameManager extends GameCore {
         }
         else if (collisionSprite instanceof Creature) {
             Creature badguy = (Creature)collisionSprite;
-            if (canKill) {
+            if (canKill && !((badguy instanceof Ghost) || (badguy instanceof Decoration))) {
                 // kill the badguy and make player bounce, and increase score
             	
             	//Multiplier is equal to base level multiplier times 2^numberOfBadGuysKilled

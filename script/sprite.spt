@@ -12,10 +12,10 @@
 # > denotes the name of the picture
 ####################################
 #Total Enemies/Helpers
-9
+13
 ####################################
 #Total Sprite Images (including player sprites)
-40
+48
 ####################################
 #Player
 >PlayerSprites/p2_walk01.png
@@ -99,3 +99,27 @@ frog
 >frogToungue.png
 >frogToungue2.png
 >frogToungue3.png
+####################################
+####################################
+#j
+crusher
+>umbrella1.png
+>umbrellaClosed.png
+####################################
+####################################
+#k
+balloonCold
+>BalloonCold1.png
+####################################
+####################################
+#l
+ghost
+>ghost_normal.png
+>ghost.png
+>ghostFade1.png
+>ghostFade2.png
+####################################
+####################################
+#m
+bush
+>bush.png
