@@ -220,7 +220,7 @@ public abstract class GameCore extends JFrame {
 
 							exitButton.setBounds(screen.getWidth()/2-150,screen.getHeight()/2,95,30);
 
-							//window.setVisible(true);
+							window.setVisible(true);
 							//window.setBackground(new Color(0,0,0,0.0f));
 							buttonPanel.setLayout(null);
 							//c.fill = GridBagConstraints.HORIZONTAL;
