@@ -7,37 +7,37 @@
 14
 ####################################
 #Maps themselves
-1 >map1.txt 
+1 >map2.txt 
 >daytime.png
 >gerudo-valley-2-.mid
-2 >map2.txt
+2 >map3.txt
 >galaxy.png
 >the_moon2.mid
-3 >map3.txt
+3 >map1.txt
 >daytime.png
 >gerudo-valley-2-.mid
-4 >map3.txt
+4 >map4.txt
 >galaxy.png
 >the_moon2.mid
-5 >map4.txt
+5 >map5.txt
 >daytime.png
 >gerudo-valley-2-.mid
-6 >map4.txt
+6 >map6.txt
 >galaxy.png
 >the_moon2.mid
 7 >map5.txt
 >daytime.png
 >gerudo-valley-2-.mid
-8 >map5.txt
+8 >map3.txt
 >galaxy.png
 >the_moon2.mid
 9 >map6.txt
 >daytime.png
 >gerudo-valley-2-.mid
-10 >map6.txt
+10 >map7.txt
 >galaxy.png
 >the_moon2.mid
-11 >map7.txt
+11 >map9.txt
 >daytime.png
 >gerudo-valley-2-.mid
 12 >map7.txt
@@ -46,6 +46,6 @@
 13 >map1.txt
 >daytime.png
 >gerudo-valley-2-.mid
-14 >map1.txt
+14 >map4.txt
 >galaxy.png
 >the_moon2.mid
