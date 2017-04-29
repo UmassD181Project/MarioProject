@@ -1236,8 +1236,6 @@ public class GameManager extends GameCore {
             }
         }
     }
-
-
     /**
         Gives the player the speicifed power up and removes it
         from the map.

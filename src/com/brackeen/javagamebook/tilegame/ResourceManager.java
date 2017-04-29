@@ -467,6 +467,10 @@ public class ResourceManager {
                     if(s.getArchType(x).compareTo("mage")==0)
                         enemyAnim[x][i] = createMageAnim(images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++],
                         		 images[i][imageIndex++], images[i][imageIndex++]);
+                else
+                  	if(s.getArchType(x).compareTo("spider")==0)
+                  		enemyAnim[x][i]=createMonkeyAnim(
+                    		images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);	
                 }
                             
             
@@ -555,6 +559,9 @@ public class ResourceManager {
         				enemyAnim[y][2], enemyAnim[y][3]);
         	else if(s.getArchType(y).compareTo("mage")==0)
         		enemySprites[y]=new Mage(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("spider")==0)
+        		enemySprites[y]=new Spider(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);
       /*//Editfield
             else
@@ -909,8 +916,8 @@ public class ResourceManager {
         	}
     	}
         Animation anim = new Animation();
-        anim.addFrame(img2, 4500);
-        anim.addFrame(img1, 950);
+        anim.addFrame(img2, 4000);
+        anim.addFrame(img1, 4000);
         return anim;
     }
 
@@ -943,13 +950,15 @@ public class ResourceManager {
     	}
             Animation anim = new Animation();
             //Normal state
-            anim.addFrame(img1, 50);
+            anim.addFrame(img1, 100);
             //Up anim state
-            anim.addFrame(img2, 50);
+            anim.addFrame(img2, 100);
             //Normal state
-            anim.addFrame(img1, 50);
-            //down anim state
-            anim.addFrame(img3, 50);
+            anim.addFrame(img3, 100);
+          //down anim state
+            anim.addFrame(img1, 100);
+            
+            
             return anim;
         }
     

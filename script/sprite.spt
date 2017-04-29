@@ -12,10 +12,10 @@
 # > denotes the name of the picture
 ####################################
 #Total Enemies/Helpers
-15
+16
 ####################################
 #Total Sprite Images (including player sprites)
-58
+61
 ####################################
 #Player
 >PlayerSprites/p2_walk01.png
@@ -141,3 +141,10 @@ mage
 >MageAtk4.png
 >MageAtk5.png
 >MageAtk6.png
+####################################
+####################################
+#p
+spider
+>spider.png
+>spider_walk1.png
+>spider_walk2.png
