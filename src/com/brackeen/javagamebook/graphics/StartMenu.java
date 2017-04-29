@@ -68,7 +68,7 @@ public class StartMenu extends JFrame{
     	//Release all Resources on Close
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
     	
-    	icon = new ImageIcon("images/banner.gif");
+    	icon = new ImageIcon("images/newbanner.png");
     	 
 		JPanel panel = new JPanel()
 		{
