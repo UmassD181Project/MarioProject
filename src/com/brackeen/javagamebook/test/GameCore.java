@@ -161,7 +161,7 @@ public abstract class GameCore extends JFrame {
 		GridBagConstraints c = new GridBagConstraints();
 		JPanel optionsMenu;
 		ImageIcon background;
-		background = new ImageIcon("images/banner.gif");
+		background = new ImageIcon("images/titlePage.png");
 		buttonPanel =new JPanel()
 		{
 			public void paintComponent(Graphics g)
@@ -220,7 +220,7 @@ public abstract class GameCore extends JFrame {
 
 							exitButton.setBounds(screen.getWidth()/2-150,screen.getHeight()/2,95,30);
 
-							window.setVisible(true);
+							//window.setVisible(true);
 							//window.setBackground(new Color(0,0,0,0.0f));
 							buttonPanel.setLayout(null);
 							//c.fill = GridBagConstraints.HORIZONTAL;
