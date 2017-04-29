@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 
 import com.brackeen.javagamebook.tilegame.ScriptManager;
 import com.brackeen.javagamebook.codereflection.*;
+import com.brackeen.javagamebook.graphics.ScreenManager;
 
 public class ScoreBoard {
 	
@@ -35,7 +36,7 @@ public class ScoreBoard {
 	private int animTimeScaleFactor=0;
 	private int maxAnimTime= 1500; //1.5 seconds max animation
 	private boolean animFont=false;
-
+	//protected ScreenManager screen;
 	private Image i1;
 	private Image i2;
 	
@@ -48,7 +49,6 @@ public class ScoreBoard {
 	private NumberFormat f =  new DecimalFormat("00000000");
 	private String currentScore="0";
     private Throwable e = new Throwable();
-	
 	public ScoreBoard()
 	{
     	if(CodeReflection.isTracing() && TestPackageTracingEnabled.getTestPackageTracingEnabledInstance().isEnabled()) {
@@ -70,6 +70,7 @@ public class ScoreBoard {
 	public void draw(Graphics2D g, int width, int height, long totalElapsedTime
 			, int level, int health, long hitClock, ScriptManager sci)
 	{
+		//screen = new ScreenManager();
     	if(CodeReflection.isTracing() && TestPackageTracingEnabled.getTestPackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=3)
         	{//check to make sure it's this level of abstraction
@@ -132,15 +133,15 @@ public class ScoreBoard {
 		
 		if(drawLevelComplete)
 		{
-			g.setColor(Color.BLUE);	
-			g.setFont(new Font(g.getFont().getName(),g.getFont().getStyle(),35));
-			g.fillRoundRect(0, height/2-100, width-1,200,50,50);
+			ImageIcon background = new ImageIcon("images/levelEnd.png");
+			//g.setColor(Color.BLUE);	
+			//g.setFont(new Font(g.getFont().getName(),g.getFont().getStyle(),35));
+			//g.fillRoundRect(0, height/2-100, width-1,200,50,50);
 
-			g.setColor(Color.GREEN);
-			for(int x=0; x<10;x++)
-				g.drawRoundRect(0+x, height/2-100+x, width-1-2*x,200-2*x,50,50);
-
-			g.drawString("Level Complete!!!!", width/2-150, height/2);
+			//g.setColor(Color.GREEN);
+			//for(int x=0; x<10;x++)
+				//g.drawRoundRect(0+x, height/2-100+x, width-1-2*x,200-2*x,50,50);
+			g.drawImage(background.getImage(),GameCore.screen.getWidth()/2-275, GameCore.screen.getHeight()/2-65,null);
 		}
 		
 		g.setColor(oldForeColor);
