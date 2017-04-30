@@ -1084,7 +1084,7 @@ public class GameManager extends GameCore {
         }
         else if (collisionSprite instanceof Creature) {
             Creature badguy = (Creature)collisionSprite;
-            if (canKill) {
+            if (canKill && !((badguy instanceof Ghost) || (badguy instanceof Decoration) || (badguy instanceof Hazard))) {
                 // kill the badguy and make player bounce, and increase score
             	
             	//Multiplier is equal to base level multiplier times 2^numberOfBadGuysKilled
@@ -1158,8 +1158,11 @@ public class GameManager extends GameCore {
             	{	
             		if(SOUND_ON)
             			soundManager.play(boopSound);
-            		if(!badguy.isHelper()){//if it's a helper, don't do the following
+            		if(badguy.takesDMG()==true){//if it's a helper, don't do the following		////Added check for canTakeDamage(variable in creature class)
             			badguy.decrementHealth();
+            			//Editfield
+            			badguy.hurt=true;
+            			//Editfield
             			if(badguy.getHealth()==0)
             			{	//The Bad Guy is dead
             				badguy.setState(Creature.STATE_DYING);
@@ -1203,14 +1206,36 @@ public class GameManager extends GameCore {
 	            			hitClock=MAX_HIT_CLOCK;
 	            			if(SOUND_ON)
 	            				soundManager.play(hurtSound);
-	            			health--;	//deduct from players health
+	            			//If badguy is a hazard, kills the player instantly regardless of health.
+	            			if(badguy instanceof Hazard)
+	            			{
+	            				health=0;
+	            				midiPlayer.stop();
+	    	            		
+	    	            		if(SOUND_ON)
+	    	            			soundManager.play(dieSound);
+	    	            		player.setState(Creature.STATE_DYING);
+	    	                
+	    	            		//reset score multipliers
+	    	            		this.baseScoreMultiplier=1.0f;
+	    	            		scoreBoard.setMultiplier(this.baseScoreMultiplier);
+	    	            	
+	    	            		player.consecutiveHits=0;
+	    	            		totalElapsedTime = 0;
+	    	            		
+	    	            		//reset Star total
+	    	            		scoreBoard.setStarTotal(0);
+	            			}
+	            			else
+	            			{
+	            				//deduct from players health
+	            				health--;
+	            			}
 	            		}
             	}
             }
         }
     }
-
-
     /**
         Gives the player the speicifed power up and removes it
         from the map.
