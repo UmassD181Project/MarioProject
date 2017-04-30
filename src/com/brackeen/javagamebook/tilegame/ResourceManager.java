@@ -414,7 +414,7 @@ public class ResourceManager {
             		enemyAnim[x][i] = createFlyAnim(
             			images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
             	else
-            	if(s.getArchType(x).compareTo("monkey")==0)
+            	if(s.getArchType(x).compareTo("slime")==0)
             		enemyAnim[x][i]=createMonkeyAnim(
             				images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
             	else
@@ -466,10 +466,18 @@ public class ResourceManager {
                   		enemyAnim[x][i]=createMonkeyAnim(
                     		images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);	
 
-                else
-                   	if(s.getArchType(x).compareTo("rocket")==0)
-                  		enemyAnim[x][i]=createDecoAnim(
-                  			images[i][imageIndex++], images[i][imageIndex++]);	
+                  	else
+                       	if(s.getArchType(x).compareTo("rocket")==0)
+                      		enemyAnim[x][i]=createDecoAnim(
+                      			images[i][imageIndex++], images[i][imageIndex++]);
+                    else
+                        if(s.getArchType(x).compareTo("turtle")==0)
+                          	enemyAnim[x][i]=createColdAnim(
+                          		images[i][imageIndex++]);
+                    else
+                        if(s.getArchType(x).compareTo("bird")==0)
+                          	enemyAnim[x][i]=createFlyAnim(
+                          		images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);
                 }
                             
             
@@ -513,8 +521,8 @@ public class ResourceManager {
         		enemySprites[y] = new Fly(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);
         	else
-        	if(s.getArchType(y).compareTo("monkey")==0)
-        		enemySprites[y]=new Monkey(enemyAnim[y][0], enemyAnim[y][1],
+        	if(s.getArchType(y).compareTo("slime")==0)
+        		enemySprites[y]=new Slime(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);   
         	else
             if(s.getArchType(y).compareTo("boss")==0)
@@ -566,10 +574,12 @@ public class ResourceManager {
         	else if(s.getArchType(y).compareTo("rocket")==0)
         		enemySprites[y]=new Decoration(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);
-        	else
-        	{
-        		
-        	}
+        	else if(s.getArchType(y).compareTo("turtle")==0)
+        		enemySprites[y]=new Turtle(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("bird")==0)
+        		enemySprites[y]=new Bird(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
       //Editfield*/
     }
     
