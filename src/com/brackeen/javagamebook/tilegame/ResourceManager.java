@@ -392,9 +392,6 @@ public class ResourceManager {
             images[2][i] = getFlippedImage(images[0][i]);
             // right-facing "dead" images
             images[3][i] = getFlippedImage(images[1][i]);
-            //images[4][i] = getFlippedImage(images[0][i]);
-            // right-facing "dead" images
-           // images[5][i] = getFlippedImage(images[1][i]);
         }
 
         // create creature animations
