@@ -176,7 +176,6 @@ public class ScreenManager {
 
       frame.setVisible(true);
       frame.setSize(displayMode.getWidth(), displayMode.getHeight());
-      
       // avoid potential deadlock in 1.4.1_02
       try {
           EventQueue.invokeAndWait(new Runnable() {

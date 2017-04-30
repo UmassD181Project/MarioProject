@@ -12,10 +12,10 @@
 # > denotes the name of the picture
 ####################################
 #Total Enemies/Helpers
-16
+17
 ####################################
 #Total Sprite Images (including player sprites)
-61
+63
 ####################################
 #Player
 >PlayerSprites/p2_walk01.png
@@ -148,3 +148,9 @@ spider
 >spider.png
 >spider_walk1.png
 >spider_walk2.png
+####################################
+####################################
+#q
+rocket
+>RocketCrash.png
+>RocketCrash2.png
