@@ -30,6 +30,9 @@ import sun.audio.*;
 
 public class StartMenu extends JFrame{
 
+	public static Sequence sequence;
+	public static Sequencer sequencer;
+	
 	private JButton startButton;
 	private JButton exitButton;
 	private JButton optionsButton;
@@ -49,9 +52,8 @@ public class StartMenu extends JFrame{
 	String d= "d";
 	public StartMenu()
 	{
-
-
-		music();
+		
+		music(true);
 		optionsMenu = new OptionsMenu();
 		startButton = new JButton("Start Game");
 
@@ -106,20 +108,23 @@ public class StartMenu extends JFrame{
 		//c.add(panel,null);
 		//getContentPane().add( c );
 		//c.setPreferredSize(new Dimension(500,400));
-		//c.add(scrollPane, "card 1");
-
+		//c.add(scrollPane, "card 1");    
 
 
 	}
 
-	public static void music() {
-		try {   
-			
-			Sequence sequence = MidiSystem.getSequence(new File("sounds/CaveStory.mid"));
-			Sequencer sequencer = MidiSystem.getSequencer();
-			sequencer.open();
-			sequencer.setSequence(sequence);
-			sequencer.start();
+	public static void music(boolean isOn) {
+		try {  
+			if (isOn) {
+				sequence = MidiSystem.getSequence(new File("sounds/CaveStory.mid"));
+				sequencer = MidiSystem.getSequencer();
+				sequencer.open();
+				sequencer.setSequence(sequence);
+				sequencer.start();
+				sequencer.setLoopCount(181);
+			} else {
+				sequencer.stop();
+			}
 			
 		} catch (MalformedURLException e) {
 		} catch (IOException e) {
@@ -127,4 +132,5 @@ public class StartMenu extends JFrame{
 		} catch (InvalidMidiDataException e) {
 		}
 	}
+
 }
