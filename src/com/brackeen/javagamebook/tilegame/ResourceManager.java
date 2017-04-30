@@ -468,7 +468,12 @@ public class ResourceManager {
                   	if(s.getArchType(x).compareTo("spider")==0)
                   		enemyAnim[x][i]=createMonkeyAnim(
                     		images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);	
+                else
+                   	if(s.getArchType(x).compareTo("rocket")==0)
+                  		enemyAnim[x][i]=createDecoAnim(
+                  			images[i][imageIndex++], images[i][imageIndex++]);	
                 }
+	        	
                             
             
         }
@@ -559,6 +564,9 @@ public class ResourceManager {
         				enemyAnim[y][2], enemyAnim[y][3]);
         	else if(s.getArchType(y).compareTo("spider")==0)
         		enemySprites[y]=new Spider(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("rocket")==0)
+        		enemySprites[y]=new Decoration(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);
       /*//Editfield
             else
