@@ -18,20 +18,27 @@ public abstract class GameCore extends JFrame {
 			new DisplayMode(800, 600, 16, 0),
 			new DisplayMode(800, 600, 32, 0),
 			new DisplayMode(800, 600, 24, 0),
+			new DisplayMode(800, 600, 48, 0),
 			new DisplayMode(640, 480, 16, 0),
 			new DisplayMode(640, 480, 32, 0),
 			new DisplayMode(640, 480, 24, 0),
-			//new DisplayMode(1024, 768, 16, 0),
-			//new DisplayMode(1024, 768, 32, 0),
-			//new DisplayMode(1024, 768, 24, 0),
+			new DisplayMode(640, 480, 48, 0),
+			new DisplayMode(1024, 768, 16, 0),
+			new DisplayMode(1024, 768, 32, 0),
+			new DisplayMode(1024, 768, 24, 0),
+			new DisplayMode(1024, 768, 48, 0),
+			new DisplayMode(1920, 1080, 24, 0),
+			new DisplayMode(1920, 1080, 16, 0),
+			new DisplayMode(1920, 1080, 32, 0),
+			new DisplayMode(1920, 1080, 48, 0),
 	};
 	private boolean isRunning;
 	public static ScreenManager screen;
 	protected boolean fullScreen 	= false;
 	protected static boolean toolScreen 	= false;
 	protected boolean pauseGame 	= false;
-	private Dimension 	screenResolution = new Dimension(800, 600);
-	private int			colorDepth = 16;
+	private Dimension 	screenResolution = new Dimension(1024, 768);
+	private int			colorDepth = 32;
 	/**
         Signals the game loop that it's time to quit
 	 */

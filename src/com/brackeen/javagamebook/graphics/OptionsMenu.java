@@ -69,7 +69,7 @@ public class OptionsMenu extends JFrame{
 		resolution1280.addItemListener(new ResolutionCheckBoxListener(1280, 1024));
 		resolution1920 = new Checkbox("1920 x 1080", resolutionCheckboxGroup, false);
 		resolution1920.addItemListener(new ResolutionCheckBoxListener(1920, 1080));
-		resolution800.setState(true);
+		resolution1024.setState(true);
 		
 		colorDepthCheckboxGroup = new CheckboxGroup();
 		
@@ -81,7 +81,7 @@ public class OptionsMenu extends JFrame{
 		colorDepth32.addItemListener(new ColorDepthCheckBoxListener(32));
 		colorDepth48 = new Checkbox("48-bit", colorDepthCheckboxGroup, false);
 		colorDepth48.addItemListener(new ColorDepthCheckBoxListener(48));
-		colorDepth16.setState(true);
+		colorDepth32.setState(true);
 		
 		levelSetPanel = new JPanel();
 		levelSetPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED), "Level Set to Play"));
