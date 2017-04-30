@@ -13,7 +13,7 @@
 #   d	    Boss Guy 
 #   0       Warp
                                                                                                                                  
-                            0                                       J                                   
+  q                         0                                       J                                   
                             I                                       J
                                                                     J
              c                                                      J                                   
