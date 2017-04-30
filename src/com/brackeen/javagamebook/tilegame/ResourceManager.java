@@ -382,9 +382,6 @@ public class ResourceManager {
         images[1] = new Image[images[0].length];
         images[2] = new Image[images[0].length];
         images[3] = new Image[images[0].length];
-       // images[4] = new Image[images[0].length];
-       // images[5] = new Image[images[0].length];
-        
         for (int i=0; i<images[0].length; i++) {
             // right-facing images
             images[1][i] = getMirrorImage(images[0][i]);
@@ -392,9 +389,6 @@ public class ResourceManager {
             images[2][i] = getFlippedImage(images[0][i]);
             // right-facing "dead" images
             images[3][i] = getFlippedImage(images[1][i]);
-            //images[4][i] = getFlippedImage(images[0][i]);
-            // right-facing "dead" images
-           // images[5][i] = getFlippedImage(images[1][i]);
         }
 
         // create creature animations
@@ -471,12 +465,20 @@ public class ResourceManager {
                   	if(s.getArchType(x).compareTo("spider")==0)
                   		enemyAnim[x][i]=createMonkeyAnim(
                     		images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);	
+
                 else
                    	if(s.getArchType(x).compareTo("rocket")==0)
                   		enemyAnim[x][i]=createDecoAnim(
                   			images[i][imageIndex++], images[i][imageIndex++]);	
                 }
 	        	
+
+                  	else
+                      	if(s.getArchType(x).compareTo("rocket")==0)
+                      		enemyAnim[x][i]=createDecoAnim(
+                        		images[i][imageIndex++], images[i][imageIndex++]);	
+                }
+
                             
             
         }
@@ -530,6 +532,51 @@ public class ResourceManager {
             if(s.getArchType(y).compareTo("sinuousfly")==0)
             	enemySprites[y]=new SinuousFly(enemyAnim[y][0], enemyAnim[y][1],
             			enemyAnim[y][2], enemyAnim[y][3]);
+
+            else
+            if(s.getArchType(y).compareTo("homingfly")==0)
+            	enemySprites[y]=new HomingFly(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]);
+            else
+            if(s.getArchType(y).compareTo("randomfly")==0)
+            	enemySprites[y]=new RandomFly(enemyAnim[y][0], enemyAnim[y][1],
+            			enemyAnim[y][2], enemyAnim[y][3]);
+            else
+                if(s.getArchType(y).compareTo("balloon")==0)
+                	enemySprites[y]=new Balloon(enemyAnim[y][0], enemyAnim[y][1],
+                			enemyAnim[y][2], enemyAnim[y][3]);
+              else
+                  if(s.getArchType(y).compareTo("frog")==0)
+                 	enemySprites[y]=new Frog(enemyAnim[y][0], enemyAnim[y][1],
+                  			enemyAnim[y][2], enemyAnim[y][3]);
+            else
+        	if(s.getArchType(y).compareTo("crusher")==0)
+        		enemySprites[y]=new Crusher(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("balloonCold")==0)
+        		enemySprites[y]=new BalloonCold(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("ghost")==0)
+        		enemySprites[y]=new Ghost(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("bush")==0)
+        		enemySprites[y]=new Decoration(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("saw")==0)
+        		enemySprites[y]=new Hazard(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("mage")==0)
+        		enemySprites[y]=new Mage(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("spider")==0)
+        		enemySprites[y]=new Spider(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("rocket")==0)
+        		enemySprites[y]=new Decoration(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+      /*//Editfield
+            else
+
             else
             if(s.getArchType(y).compareTo("homingfly")==0)
             	enemySprites[y]=new HomingFly(enemyAnim[y][0], enemyAnim[y][1],
