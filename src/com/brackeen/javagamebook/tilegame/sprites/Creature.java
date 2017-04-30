@@ -41,7 +41,15 @@ public abstract class Creature extends Sprite {
     protected boolean helper;
     protected boolean intelligent = false;
     
-    protected int health;
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    protected boolean canDoDamage;
+    protected boolean canTakeDamage;
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    protected  int health;
+    //Editfield
+    public static boolean hurt=false;
+    //Editfield
     
     protected float horizontalResponceTime = 25.5f;
     protected float verticalResponceTime = 25.5f;
@@ -67,6 +75,8 @@ public abstract class Creature extends Sprite {
         state = STATE_NORMAL;
         health = 1;
         helper = false;
+        canTakeDamage=true;
+        canDoDamage=true;
     }
 
 
@@ -425,4 +435,15 @@ public boolean isIntelligent() {
 	{//Returns whether the creature is a helper or an enemy
 		return helper;
 	}
+	
+	public boolean doesDMG()
+	{//Returns whether the creature is able to deal damage
+		return canDoDamage;
+	}
+	
+	public boolean takesDMG()
+	{//Returns whether the creature is able to take damage
+		return canTakeDamage;
+	}
+	
 }

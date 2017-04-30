@@ -118,6 +118,8 @@ public abstract class GameCore extends JFrame {
 		window.setFont(new Font("Dialog", Font.PLAIN, FONT_SIZE));
 		window.setBackground(Color.blue);
 		window.setForeground(Color.white);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
 
 		isRunning = true;
 	}
@@ -161,7 +163,7 @@ public abstract class GameCore extends JFrame {
 		GridBagConstraints c = new GridBagConstraints();
 		JPanel optionsMenu;
 		ImageIcon background;
-		background = new ImageIcon("images/banner.gif");
+		background = new ImageIcon("images/titlePage.png");
 		buttonPanel =new JPanel()
 		{
 			public void paintComponent(Graphics g)

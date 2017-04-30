@@ -1,21 +1,15 @@
-/*
- * Created on Jan 9, 2006
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 package com.brackeen.javagamebook.tilegame.sprites;
 
 import com.brackeen.javagamebook.codereflection.CodeReflection;
 import com.brackeen.javagamebook.graphics.Animation;
 
 /**
- * @author Clinton Rogers
+ *
  *
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class Balloon extends Creature {
+public class Decoration extends Creature {
 
 	/**
 	 * @param left
@@ -23,7 +17,7 @@ public class Balloon extends Creature {
 	 * @param deadLeft
 	 * @param deadRight
 	 */
-	public Balloon(Animation left, Animation right, Animation deadLeft,
+	public Decoration(Animation left, Animation right, Animation deadLeft,
 			Animation deadRight) 
 	{
 		//Call Creature constructor
@@ -39,14 +33,12 @@ public class Balloon extends Creature {
         	}
     	}
 		
-		//Define as a helper; cannot do/take damage
+		//Cannot take or deal damage
 		helper = true;
 		canDoDamage = false;
 		canTakeDamage=false;
-		//Set as flying
-		flying = true;
 	}
-	
+	//doesn't move
     public float getMaxSpeed() {
     	if(CodeReflection.isTracing() && SpritesPackageTracingEnabled.getSpritesPackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=2)
@@ -56,7 +48,7 @@ public class Balloon extends Creature {
         								e.getStackTrace()[0].getMethodName());
         	}
     	}
-        return 0.2f;
+        return 0.0f;
     }
 
 }

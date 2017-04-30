@@ -12,6 +12,7 @@
 #   c       Bad Guy c (monkey)
 #   d	    Boss Guy 
 #   0       Warp
+<<<<<<< HEAD
                                                                  
                            II
                            II
@@ -21,5 +22,17 @@
 b         bb                o  aac   o o                        a                     o               c              b      
           BBF  c        IIIIIIIII        o   o        o          b  b                                        bb      c EF    aao
           BB                                                                                                                    
+=======
+                                                                  
+                           II                                                                                                   
+                           II                                                                                                       
+                           II                                                                                                       
+                             
+                         cba    
+                       IIIIIIIIIII        c                                 o     o     
+                c                     a        c                        o           o            b
+b         bb               o   aac   o o                        a                     o               c              b      
+         EBBF  c        IIIIIIIII        o   o        o          b  b                                        bb      c EF    aao
+>>>>>>> branch 'master' of ssh://git@github.com/UmassD181Project/MarioProject.git
         aCAAD cc       o    o              b       co   o     c  a     c     cccc aa     aa o        b                 CD     b *
 EBBBBBBBBGAAHBBBBBBBBBBBBBBBBBBBBBBBBF    III    III    III    EBBBBBBBBBBBBBBBBF  IIII  IIII  EBBBBBBBBBBBBBBBBBBBBBBBBF   EBBBB
