@@ -15,7 +15,7 @@
 
 
                                                                                                                                  
-                            0                                       J                                   
+   q                        0                                       J                                   
                             I                                       J
                                                                     J
              c                                                      J                                   
@@ -23,5 +23,5 @@
          I                         b             B                  J                                   
                                                                     J
                                           b oooo A      III         J                                         
-  q   I               cccccc   b ooooo      aaaaaA           d      J                                               
+      I               cccccc   b ooooo      aaaaaA           d      J                                               
 EBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF
