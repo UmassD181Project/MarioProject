@@ -20,4 +20,4 @@
                                     b    b             b
           b b b  b   b    b    b                        b 
   ^                                                      b    *
-BBBBBB                                                      BBBBBB
+BBBBBB                                                     BBBBBBB
