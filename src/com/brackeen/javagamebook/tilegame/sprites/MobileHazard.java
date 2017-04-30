@@ -47,7 +47,7 @@ public class MobileHazard extends Creature {
         								e.getStackTrace()[0].getMethodName());
         	}
     	}
-        return 0.2f;
+        return 0.3f;
     }
 
 }

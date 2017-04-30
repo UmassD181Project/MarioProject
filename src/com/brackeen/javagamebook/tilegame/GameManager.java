@@ -1207,7 +1207,7 @@ public class GameManager extends GameCore {
 	            			if(SOUND_ON)
 	            				soundManager.play(hurtSound);
 	            			//If badguy is a hazard, kills the player instantly regardless of health.
-	            			if(badguy instanceof Hazard)
+	            			if(badguy instanceof Hazard || badguy instanceof MobileHazard)
 	            			{
 	            				health=0;
 	            				midiPlayer.stop();
