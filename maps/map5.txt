@@ -14,12 +14,12 @@
 #   0       Warp
                                                                  
                                                                  
-AD                       o o o                                           ^                      
-AD                      IIIIIII      I       I                  IIIIII  EBBBBBBBF c        o                       EF
-AD c                                         I  c              b    b   bCAAAAAAAD    o                c            CD
+AD                       & & &                                           ^                      
+AD                      IIIIIII      I       I                  IIIIII  EBBBBBBBF c        &                       EF
+AD c                                         I  c              b    b   bCAAAAAAAD    &                c            CD
 AD                    b   !        b                                     CAAAAAAAAF        c                        CD
 AD              a       IIIII                           IIIII      c     CAAAAAAAAHF   IIIIIII                      CD
 AD         III                          a    a  a        b               CAAAAAAAAAD b           c          c       CD
-AD                            a      IIIIIIIIIIIII                       CAAAAAAAAAHF o                             CD
-AD  c   a       EBBBF      c          o o o o o o          ccc           CAAAAAAAAAAD  ^o          bEBBBF   a  b  d CD
+AD                            a      IIIIIIIIIIIII                       CAAAAAAAAAHF &                             CD
+AD  c   a       EBBBF      c          & & & & & &          ccc           CAAAAAAAAAAD  ^&          bEBBBF   a  b  d CD
 AHBBBBBBBBBBBBBBGAAAHBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF      EBGAAAAAAAAAAHBBBBBBBBBBBBBBBGAAAHBBBBBBBBBBBGH

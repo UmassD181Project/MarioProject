@@ -16,11 +16,11 @@
                            II
                    
                        cba  !                                                             
-                     IIIIIIIIIII^                                             o     o                   
-                                                 a                                o           o         
+                     IIIIIIIIIII^                                             &     &                   
+                                                 a                                &           &         
                 II                                                                                       
-         bb               o   aac   o o                        a                     o
-                        IIIIIIIII        o   o        o          b  b               bbbbbb             o
+         bb               &   aac   & &                        a                     &
+                        IIIIIIIII        &   &        &          b  b               bbbbbb             &
          EBBF
-     a   CAAD cccc       o    o         0    b  ^^   o   o   jcjc  a  c cc     cccc aa     aa o^       *
+     a   CAAD cccc       &    &         0    b  ^^   &   &   jcjc  a  c cc     cccc aa     aa &^       *
 EBBBBBBBBGAAHBBBBBBBBBBBBBBBBBBBBBBBBAAABBBBAABBBBBBBBBBBBB  IIII  IIII  EBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF
