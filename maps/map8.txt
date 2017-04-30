@@ -21,5 +21,5 @@
          I                         b                                J                                   
                                                                     J
                                           b oooo A      III         J                                         
-  q   I               cccccc   b ooooo      aaaaaA           d      J                                               
+      I               cccccc   b ooooo      aaaaaA           d      J                                               
 EBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF

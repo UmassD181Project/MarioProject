@@ -119,10 +119,6 @@ public abstract class GameCore extends JFrame {
 
 
 		//window.setUndecorated();
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    	//window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);    
-        window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
-
 		isRunning = true;
 	}
 
