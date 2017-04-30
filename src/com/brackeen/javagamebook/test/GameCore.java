@@ -27,7 +27,7 @@ public abstract class GameCore extends JFrame {
 	};
 
 	private boolean isRunning;
-	protected ScreenManager screen;
+	public static ScreenManager screen;
 	protected boolean fullScreen 	= false;
 	protected static boolean toolScreen 	= false;
 	protected boolean pauseGame 	= false;
@@ -230,7 +230,7 @@ public abstract class GameCore extends JFrame {
 							//c.gridx = 0;
 							//c.gridy = 1;
 							
-
+							getContentPane().add(buttonPanel);
 							buttonPanel.add(exitButton,c); 
 							window.add(buttonPanel,BorderLayout.CENTER);
 							//window.update();
@@ -239,7 +239,8 @@ public abstract class GameCore extends JFrame {
 							inputManager.setCursor(InputManager.VISIBLE_CURSOR);
 							pauseLimiter++;
 							buttonPanel.repaint();
-							//window.setVisible(true);
+							window.setVisible(true);
+							getContentPane().validate();
 							window.validate();
 						}
 

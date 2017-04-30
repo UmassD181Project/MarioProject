@@ -116,7 +116,7 @@ public class ResourceManager {
         Image newImage = gc.createCompatibleImage(
             image.getWidth(null),
             image.getHeight(null),
-            Transparency.BITMASK);
+            Transparency.TRANSLUCENT);
 
         // draw the transformed image
         Graphics2D g = (Graphics2D)newImage.getGraphics();
