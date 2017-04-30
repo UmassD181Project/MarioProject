@@ -12,14 +12,14 @@
 #   c       Bad Guy c (monkey)
 #   d	    Boss Guy 
 #   0       Warp
-                                                                 
-                           
-                           
-                           II
-                           II
-                           II
-                       cba                   c                                 o     o     
-                c    IIIIIIIIIII                 a        c                        o           o            b
+                                                                  
+                           II                                                                                                   
+                           II                                                                                                       
+                           II                                                                                                       
+                             
+                         cba    
+                       IIIIIIIIIII        c                                 o     o     
+                c                     a        c                        o           o            b
 b         bb               o   aac   o o                        a                     o               c              b      
          EBBF  c        IIIIIIIII        o   o        o          b  b                                        bb      c EF    aao
         aCAAD cc       o    o              b       co   o     c  a     c     cccc aa     aa o        b                 CD     b *

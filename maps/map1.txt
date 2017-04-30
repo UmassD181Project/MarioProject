@@ -19,5 +19,5 @@
                                              b       b   
                                     b    b             b
           b b b  b   b    b    b                        b 
-  ^                                                      b    d
+  ^                                                      b    *
 BBBBBB                                                      BBBBBB
