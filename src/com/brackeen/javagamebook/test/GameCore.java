@@ -113,10 +113,16 @@ public abstract class GameCore extends JFrame {
 		window.setFont(new Font("Dialog", Font.PLAIN, FONT_SIZE));
 		window.setBackground(Color.blue);
 		window.setForeground(Color.white);
+
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
+
+
 		//window.setUndecorated();
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     	//window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);    
         window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
+
 		isRunning = true;
 	}
 
