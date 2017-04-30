@@ -161,7 +161,7 @@ public abstract class GameCore extends JFrame {
 		GridBagConstraints c = new GridBagConstraints();
 		JPanel optionsMenu;
 		ImageIcon background;
-		background = new ImageIcon("images/banner.gif");
+		background = new ImageIcon("images/titlePage.png");
 		buttonPanel =new JPanel()
 		{
 			public void paintComponent(Graphics g)

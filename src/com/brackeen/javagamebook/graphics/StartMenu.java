@@ -11,7 +11,10 @@ import java.awt.Container;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+
 import com.brackeen.javagamebook.eventlisteners.*;
 import com.brackeen.javagamebook.graphics.OptionsMenu;
 //This is a commit Test
@@ -48,18 +51,25 @@ public class StartMenu extends JFrame{
     	exitButton = new JButton("Exit Game");
     	
     	buttonPanel = new JPanel();
-    	buttonPanel.setLayout(new GridLayout(3,0));
+    	buttonPanel.setLayout(new GridLayout(1, 3));
     	buttonPanel.add(startButton);
     	buttonPanel.add(optionsButton);
     	buttonPanel.add(exitButton);
     	screenContainer = new JPanel(new BorderLayout());
-    	screenContainer.add(buttonPanel, BorderLayout.SOUTH);
+    	screenContainer.add(buttonPanel, BorderLayout.NORTH);
     	this.setSize(800,600);
     	this.add(screenContainer);
+    	this.setUndecorated(true);
     	//c=screenContainer;
-		card=new CardLayout(40,30);  
+
+		//card=new CardLayout(40,30);  
+		//create CardLayout object with 40 hor space and 30 ver space  
 		//c.setLayout(card);  
-    	//c.add(scrollPane,"Main");
+    	//c.add(scrollPane,"Main"); 
+
+    	//Centering Frame in the middle of the screen
+    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
     	optionsButton.addActionListener(new OptionsButtonListener(optionsMenu));
     	startButton.addActionListener(new StartButtonListener());
@@ -67,7 +77,7 @@ public class StartMenu extends JFrame{
     	//Release all Resources on Close
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
     	
-    	icon = new ImageIcon("images/banner.gif");
+    	icon = new ImageIcon("images/titlePage.png");
     	 
 		JPanel panel = new JPanel()
 		{
