@@ -119,10 +119,6 @@ public abstract class GameCore extends JFrame {
 
 
 		//window.setUndecorated();
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    	//window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);    
-        window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
-
 		isRunning = true;
 	}
 
@@ -213,15 +209,7 @@ public abstract class GameCore extends JFrame {
 							exitButton.setBounds(screen.frame().getWidth()/2-150,screen.frame().getHeight()/2,95,30);
 							exitButton.setBounds(screen.getWidth()/2-150,screen.getHeight()/2,95,30);
 							window.setVisible(true);
-							//window.setBackground(new Color(0,0,0,0.0f));
 							buttonPanel.setLayout(null);
-							//c.fill = GridBagConstraints.HORIZONTAL;
-							//c.ipady = 20;
-							//c.weightx = 0.0;
-							//c.gridwidth = 3;
-							//c.gridx = 0;
-							//c.gridy = 1;
-							//getContentPane().add(buttonPanel);
 							buttonPanel.add(exitButton,c); 
 							window.add(buttonPanel,BorderLayout.CENTER);
 							screen.update();
@@ -232,7 +220,6 @@ public abstract class GameCore extends JFrame {
 							window.setVisible(true);
 							getContentPane().validate();
 							window.validate();
-							//window.repaint();
 						}
 
 
