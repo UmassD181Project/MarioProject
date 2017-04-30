@@ -25,18 +25,13 @@ public abstract class GameCore extends JFrame {
 			//new DisplayMode(1024, 768, 32, 0),
 			//new DisplayMode(1024, 768, 24, 0),
 	};
-
 	private boolean isRunning;
 	public static ScreenManager screen;
 	protected boolean fullScreen 	= false;
 	protected static boolean toolScreen 	= false;
 	protected boolean pauseGame 	= false;
-
 	private Dimension 	screenResolution = new Dimension(800, 600);
 	private int			colorDepth = 16;
-
-
-
 	/**
         Signals the game loop that it's time to quit
 	 */
@@ -118,9 +113,10 @@ public abstract class GameCore extends JFrame {
 		window.setFont(new Font("Dialog", Font.PLAIN, FONT_SIZE));
 		window.setBackground(Color.blue);
 		window.setForeground(Color.white);
+		//window.setUndecorated();
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    	window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
-
+    	//window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);    
+        window.setLocation(dim.width/2-window.getSize().width/2, dim.height/2-window.getSize().height/2);
 		isRunning = true;
 	}
 
@@ -152,11 +148,9 @@ public abstract class GameCore extends JFrame {
 		int iterator;
 		int pauseLimiter=0;
 		JFrame window = screen.getFullScreenWindow();
-		final Cursor VISIBLE_CURSOR =Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage("images/arrowCursor.png"),
-				new Point(0,0),"visible");
+		final Cursor VISIBLE_CURSOR =Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage("images/arrowCursor.png"),new Point(0,0),"visible");
 		Component comp;
-		InputManager inputManager = new InputManager(
-				screen.getFullScreenWindow());
+		InputManager inputManager = new InputManager(screen.getFullScreenWindow());
 		JPanel buttonPanel;
 		JButton exitButton=new JButton("Exit");  
 		exitButton.addActionListener(new ExitButtonListener());
@@ -168,11 +162,8 @@ public abstract class GameCore extends JFrame {
 		{
 			public void paintComponent(Graphics g)
 			{
-
 				g.drawImage(background.getImage(),0,0,null);
-
 				g.drawImage(background.getImage(),0,0,screen.getWidth(),screen.getHeight(),null);
-
 				g.setColor(Color.RED);
 				//this.setOpaque(false);
 				super.paintComponent(g);
@@ -211,17 +202,10 @@ public abstract class GameCore extends JFrame {
 
 						if (pauseLimiter<1)
 						{
-							
-							screen.getGraphics().drawString("Manual Pause", screen.frame().getWidth()/2-150, screen.frame().getHeight()/2);
-							screen.getGraphics().drawImage(icon.getImage(),0,0,screen.frame().getWidth(),screen.frame().getHeight(),null);
 							buttonPanel.setBackground(new Color(0,0,0,0));
-							buttonPanel.setOpaque(false);
-							
-
+							buttonPanel.setOpaque(false);						
 							exitButton.setBounds(screen.frame().getWidth()/2-150,screen.frame().getHeight()/2,95,30);
-
 							exitButton.setBounds(screen.getWidth()/2-150,screen.getHeight()/2,95,30);
-
 							window.setVisible(true);
 							//window.setBackground(new Color(0,0,0,0.0f));
 							buttonPanel.setLayout(null);
@@ -231,11 +215,9 @@ public abstract class GameCore extends JFrame {
 							//c.gridwidth = 3;
 							//c.gridx = 0;
 							//c.gridy = 1;
-							
-							getContentPane().add(buttonPanel);
+							//getContentPane().add(buttonPanel);
 							buttonPanel.add(exitButton,c); 
 							window.add(buttonPanel,BorderLayout.CENTER);
-							//window.update();
 							screen.update();
 							Thread.sleep(20);
 							inputManager.setCursor(InputManager.VISIBLE_CURSOR);
@@ -244,6 +226,7 @@ public abstract class GameCore extends JFrame {
 							window.setVisible(true);
 							getContentPane().validate();
 							window.validate();
+							//window.repaint();
 						}
 
 

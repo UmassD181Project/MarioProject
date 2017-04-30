@@ -382,9 +382,6 @@ public class ResourceManager {
         images[1] = new Image[images[0].length];
         images[2] = new Image[images[0].length];
         images[3] = new Image[images[0].length];
-       // images[4] = new Image[images[0].length];
-       // images[5] = new Image[images[0].length];
-        
         for (int i=0; i<images[0].length; i++) {
             // right-facing images
             images[1][i] = getMirrorImage(images[0][i]);
@@ -468,12 +465,11 @@ public class ResourceManager {
                   	if(s.getArchType(x).compareTo("spider")==0)
                   		enemyAnim[x][i]=createMonkeyAnim(
                     		images[i][imageIndex++], images[i][imageIndex++], images[i][imageIndex++]);	
-                else
-                   	if(s.getArchType(x).compareTo("rocket")==0)
-                  		enemyAnim[x][i]=createDecoAnim(
-                  			images[i][imageIndex++], images[i][imageIndex++]);	
+                  	else
+                      	if(s.getArchType(x).compareTo("rocket")==0)
+                      		enemyAnim[x][i]=createDecoAnim(
+                        		images[i][imageIndex++], images[i][imageIndex++]);	
                 }
-	        	
                             
             
         }

@@ -131,7 +131,6 @@ public class ScreenManager {
         frame.setUndecorated(true);
         frame.setIgnoreRepaint(true);
         frame.setResizable(false);
-
         device.setFullScreenWindow(frame);
 
         if (displayMode != null &&
@@ -173,7 +172,7 @@ public class ScreenManager {
       this.fullScreen = false;
       frame = new JFrame();
       frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
+      frame.setUndecorated(true);
       frame.setVisible(true);
       frame.setSize(displayMode.getWidth(), displayMode.getHeight());
       // avoid potential deadlock in 1.4.1_02
