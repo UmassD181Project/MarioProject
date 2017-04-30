@@ -12,10 +12,10 @@
 # > denotes the name of the picture
 ####################################
 #Total Enemies/Helpers
-17
+20
 ####################################
 #Total Sprite Images (including player sprites)
-63
+69
 ####################################
 #Player
 >PlayerSprites/p2_walk01.png
@@ -52,7 +52,7 @@ fly
 ####################################
 ####################################
 #c
-monkey
+slime
 >monkey1.png
 >monkey2.png
 >monkey3.png
@@ -154,3 +154,21 @@ spider
 rocket
 >RocketCrash.png
 >RocketCrash2.png
+####################################
+####################################
+#r
+bird
+>Bird1.png
+>Bird2.png
+>Bird1.png
+####################################
+####################################
+#s
+turtle
+>turtle.png
+####################################
+####################################
+#t
+spinner
+>spinner.png
+>spinner_spin.png

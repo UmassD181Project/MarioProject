@@ -13,7 +13,7 @@ import com.brackeen.javagamebook.codereflection.*;
  * @author danielsd
  * Daniels.Douglas@gmail.com
  */
-public class Monkey extends Creature {
+public class Slime extends Creature {
 
 	private static final int MILI_PER_SECOND = 1000; 
 	//TODO set a jump interval to only jump after a certain number of seconds
@@ -28,7 +28,7 @@ public class Monkey extends Creature {
 	 * @param deadLeft
 	 * @param deadRight
 	 */
-	public Monkey(Animation left, Animation right, Animation deadLeft, Animation deadRight) {
+	public Slime(Animation left, Animation right, Animation deadLeft, Animation deadRight) {
 		super(left, right, deadLeft, deadRight);
     	if(CodeReflection.isTracing() && SpritesPackageTracingEnabled.getSpritesPackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=1)
@@ -45,7 +45,7 @@ public class Monkey extends Creature {
 	}
 	
 	
-	//TODO Set how fast you want the monkey to move.
+	//TODO Set how fast you want the Slime to move.
     public float getMaxSpeed() {
     	if(CodeReflection.isTracing() && SpritesPackageTracingEnabled.getSpritesPackageTracingEnabledInstance().isEnabled()) {
         	if(CodeReflection.getAbstactionLevel()>=2)
@@ -77,11 +77,11 @@ public class Monkey extends Creature {
         								e.getStackTrace()[0].getMethodName());
         	}
     	}
-		//See if its time for the monkey to jump
+		//See if its time for the Slime to jump
 		//Because time comes in at intervals we have to make sure that
 		//we jump in whichever elapsedTime interval that the timer has gone off in.
 		if((totalElapsedTime % jumpInterval)-elapsedTime<0){
-			//Make the monkey jump if he's not already in the air
+			//Make the Slime jump if he's not already in the air
 			jump();
 			jumpInterval = initJumpInterval + RandomUtil.getRandomInt(200);
 		}

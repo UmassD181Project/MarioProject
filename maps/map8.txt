@@ -20,6 +20,6 @@
            I   Kh       I                      b                    J                                       
          I                         b                                J                                   
                                                                     J
-                                          b oooo A      III         J                                         
-      I               cccccc   b ooooo      aaaaaA           d      J                                               
+                                          b &&&& A      III         J                                         
+      I               cccccc   b &&&&&      aaaaaA           d      J                                               
 EBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF
