@@ -14,9 +14,9 @@
 #   0       Warp
                                                                  
                                                                  
-AD                                                                      ^                      
-AD                      o o o                I                   IIIIII  EBBBBBBBF c        o                       EF
-AD c                   IIIIIII               I  c              b    b   bCAAAAAAAD    o                c            CD
+AD                       o o o                                           ^                      
+AD                      IIIIIII      I       I                  IIIIII  EBBBBBBBF c        o                       EF
+AD c                                         I  c              b    b   bCAAAAAAAD    o                c            CD
 AD                    b   !        b                                     CAAAAAAAAF        c                        CD
 AD              a       IIIII                           IIIII      c     CAAAAAAAAHF   IIIIIII                      CD
 AD         III                          a    a  a        b               CAAAAAAAAAD b           c          c       CD
