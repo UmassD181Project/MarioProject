@@ -36,6 +36,7 @@ public class MobileHazard extends Creature {
 		//Cannot take damage
 		canDoDamage = true;
 		canTakeDamage=false;
+		flying=true;
 	}
 	//does move
     public float getMaxSpeed() {
@@ -47,7 +48,7 @@ public class MobileHazard extends Creature {
         								e.getStackTrace()[0].getMethodName());
         	}
     	}
-        return 0.3f;
+        return 0.5f;
     }
 
 }
