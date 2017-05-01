@@ -481,6 +481,13 @@ public class ResourceManager {
                     else
                         if(s.getArchType(x).compareTo("spinner")==0)
                             enemyAnim[x][i] = createDecoAnim(images[i][imageIndex++], images[i][imageIndex++]);
+                        else
+                           	if(s.getArchType(x).compareTo("hidingWall")==0)
+                          		enemyAnim[x][i]=createDecoAnim(
+                          			images[i][imageIndex++], images[i][imageIndex++]);
+                           	else
+                                if(s.getArchType(x).compareTo("lava")==0)
+                                    enemyAnim[x][i] = createDecoAnim(images[i][imageIndex++], images[i][imageIndex++]);
                 }
                             
             
@@ -585,6 +592,12 @@ public class ResourceManager {
         				enemyAnim[y][2], enemyAnim[y][3]);
         	else if(s.getArchType(y).compareTo("spinner")==0)
         		enemySprites[y]=new MobileHazard(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("hidingWall")==0)
+        		enemySprites[y]=new Decoration(enemyAnim[y][0], enemyAnim[y][1],
+        				enemyAnim[y][2], enemyAnim[y][3]);
+        	else if(s.getArchType(y).compareTo("lava")==0)
+        		enemySprites[y]=new Hazard(enemyAnim[y][0], enemyAnim[y][1],
         				enemyAnim[y][2], enemyAnim[y][3]);
       //Editfield*/
     }

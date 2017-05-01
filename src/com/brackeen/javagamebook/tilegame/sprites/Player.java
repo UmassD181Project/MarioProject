@@ -46,29 +46,29 @@ public class Player extends Creature {
     {
     	// select the correct Animation
         Animation newAnim = anim;
-        if(onGround && getVelocityX() == 0.0f&&!(getVelocityY() > 0 ||getVelocityY() < 0) && (newAnim == right||newAnim == jumpLeft))
+        if(onGround && getVelocityX() == 0.0f&&!(getVelocityY() > 0 ||getVelocityY() < 0) && (newAnim == right||newAnim == jumpLeft)&& state != STATE_DYING|| state == STATE_HURT)
         {
         	newAnim = standLeft;
         }
-        if(onGround && getVelocityX() == 0.0f&&!(getVelocityY() > 0 ||getVelocityY() < 0) && (newAnim == left||newAnim == jumpRight))
+        else if(onGround && getVelocityX() == 0.0f&&!(getVelocityY() > 0 ||getVelocityY() < 0) && (newAnim == left||newAnim == jumpRight)&& state != STATE_DYING|| state == STATE_HURT)
         {
         	newAnim = standRight;
         }
-        if (getVelocityX() < 0 && onGround && !(getVelocityY() > 0 ||getVelocityY() < 0))  {
+        else if (getVelocityX() < 0 && onGround && !(getVelocityY() > 0 ||getVelocityY() < 0))  {
             newAnim = left;
         }
         else if (getVelocityX() > 0 && onGround && !(getVelocityY() > 0 ||getVelocityY() < 0)) {
             newAnim = right;
         }
-        if (getVelocityX() < 0 &&!onGround&& (getVelocityY() > 0 ||getVelocityY() < 0)) {
+        else if (getVelocityX() < 0 &&!onGround&& (getVelocityY() > 0 ||getVelocityY() < 0)) {
             newAnim = jumpRight;
         }
-        if (getVelocityX() > 0 &&!onGround&& (getVelocityY() > 0 ||getVelocityY() < 0) ) 
+        else if (getVelocityX() > 0 &&!onGround&& (getVelocityY() > 0 ||getVelocityY() < 0) ) 
         {
             newAnim = jumpLeft;
         }
        
-        if ((state == STATE_DYING || state == STATE_HURT) && newAnim == left) {
+        else  if ((state == STATE_DYING || state == STATE_HURT) && newAnim == left) {
             newAnim = deadLeft;
         }
         else if ((state == STATE_DYING || state == STATE_HURT) && newAnim == right) {
