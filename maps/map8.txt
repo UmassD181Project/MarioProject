@@ -19,7 +19,7 @@
              c                                                      J                                   
            I   Kh       I                      b                    J                                       
          I                         b                                J                                   
-           s  r                                                     J
-                                          b oooo A      III         J                                         
-      I     t         cccccc   b ooooo      aaaaaA           d      J                                               
+                                                                    J
+                                          b &&&& A      III         J                                         
+      I               cccccc   b &&&&&      aaaaaA           d      J                                               
 EBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF
