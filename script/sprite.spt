@@ -12,10 +12,10 @@
 # > denotes the name of the picture
 ####################################
 #Total Enemies/Helpers
-20
+22
 ####################################
 #Total Sprite Images (including player sprites)
-69
+73
 ####################################
 #Player
 >PlayerSprites/p2_walk01.png
@@ -172,3 +172,15 @@ turtle
 spinner
 >spinner.png
 >spinner_spin.png
+####################################
+####################################
+#u
+hidingWall
+>hideWall.png
+>hideWall.png
+####################################
+####################################
+#v
+lava
+>lava.png
+>lava.png
