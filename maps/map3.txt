@@ -20,5 +20,5 @@
                                           c       &        b                       I
           c c  c c c              b   EF            bEF   c                        I
          c       EF                  EGD    c    c  EGD                            I
-  ^     EF  a    CD      ca         EGAD  0^^^^^   EGAD     d                      I
+  ^  nn EF  a    CD   m  ca   m     EGAD  0^^^^^   EGAD     d                      I
 BBBBBBBBGHBBBBBBBGHBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBGAAHBBBBBBBBBBBBBBBBBBBBBBBBBBBBI
