@@ -17,7 +17,7 @@
                            II                                                                                                       
                            II                                                                                                       
                              
-                         cba    
+                         cba    s                                                                                                
                        IIIIIIIIIII        c                                 &     &     
                 c                     a        c                        &           &            b
 b         bb               &   aac   & &                        a                     &               c              b      

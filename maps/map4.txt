@@ -20,7 +20,7 @@
                                                  a                                &           &         
                 II                                                                                       
          bb               &   aac   & &                        a                     &
-                        IIIIIIIII        &   &        &          b  b               bbbbbb             &
+            j           IIIIIIIII        &   &        &          b  b               bbbbbb             &
          EBBF
-     a   CAAD cccc       &    &         0    b  ^^   &   &   jcjc  a  c cc     cccc aa     aa &^       *
+     a   CAAD cccc       &    &         0    b  ^^   &   &   jcjc  a  c cc   j cccc aa     aa &^       *
 EBBBBBBBBGAAHBBBBBBBBBBBBBBBBBBBBBBBBAAABBBBAABBBBBBBBBBBBB  IIII  IIII  EBBBBBBBBBBBBBBBBBBBBBBBBBBBBBF
