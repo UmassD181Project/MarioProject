@@ -42,16 +42,12 @@ public class OptionsMenu extends JFrame{
 		toolScreenCheckBox = new JCheckBox("Run Game with Tool Screen");
 		toolScreenCheckBox.addActionListener(new ToolScreenCheckBoxListener(toolScreenCheckBox));
 		
-		fullScreenCheckBox = new JCheckBox("Run Game in Full-Screen Mode");
-		fullScreenCheckBox.addActionListener(new FullScreenCheckBoxListener(fullScreenCheckBox, toolScreenCheckBox));
-		
 		fpsCheckBox = new JCheckBox("Show FPS");
 		fpsCheckBox.setSelected(GameManager.getGameManagerInstance().getShowFPS());
 		fpsCheckBox.addActionListener(new FPSCheckBoxListener(fpsCheckBox));
 		
 		otherSettings = new JPanel();
 		otherSettings.setLayout(new GridLayout(4,1));
-		otherSettings.add(fullScreenCheckBox);
 		otherSettings.add(toolScreenCheckBox);
 		otherSettings.add(fpsCheckBox);
 		//otherSettings.add(tracingOnCheckBox);
